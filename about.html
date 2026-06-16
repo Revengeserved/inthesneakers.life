@@ -6,13 +6,33 @@
   <title>The Story | Inside the Sneakers</title>
   <meta name="description" content="Read the story behind Inside the Sneakers by Ronn Popagorgio." />
   <link rel="canonical" href="https://inthesneakers.life/about.html" />
-  <link rel="stylesheet" href="Styles.css?v=3" />
+  <link rel="stylesheet" href="Styles.css?v=20260615" />
+
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNFNVGXCFL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XNFNVGXCFL');
+    gtag('config', 'G-XNFNVGXCFL', {
+      send_page_view: true,
+      page_title: 'Inside the Sneakers Story',
+      page_location: 'https://inthesneakers.life/about.html'
+    });
+
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-analytics-event]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', link.dataset.analyticsEvent, {
+              event_category: 'story_cta',
+              event_label: link.href,
+              link_text: link.innerText.trim()
+            });
+          }
+        });
+      });
+    });
   </script>
 </head>
 <body>
@@ -41,9 +61,9 @@
         </p>
 
         <nav class="cta-row" aria-label="Story actions">
-          <a class="btn btn-primary" href="https://venmo.com/u/insidethesneakers" target="_blank" rel="noopener noreferrer">Support on Venmo</a>
-          <a class="btn btn-secondary" href="https://cash.app/$inthesneakers" target="_blank" rel="noopener noreferrer">Support on Cash App</a>
-          <a class="btn btn-ghost" href="index.html">Back Home</a>
+          <a class="btn btn-primary" href="https://venmo.com/u/insidethesneakers" target="_blank" rel="noopener noreferrer" data-analytics-event="click_story_venmo">Support on Venmo</a>
+          <a class="btn btn-secondary" href="https://cash.app/$inthesneakers" target="_blank" rel="noopener noreferrer" data-analytics-event="click_story_cashapp">Support on Cash App</a>
+          <a class="btn btn-ghost" href="index.html" data-analytics-event="click_story_back_home">Back Home</a>
         </nav>
       </article>
     </div>
