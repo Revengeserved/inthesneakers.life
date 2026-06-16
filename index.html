@@ -28,14 +28,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Syne+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="hero-redesign.css?v=2" />
+  <link rel="stylesheet" href="hero-redesign.css?v=20260615" />
 
+  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNFNVGXCFL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XNFNVGXCFL');
+    gtag('config', 'G-XNFNVGXCFL', {
+      send_page_view: true,
+      page_title: 'Inside the Sneakers Homepage',
+      page_location: 'https://inthesneakers.life/'
+    });
+
+    window.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('[data-analytics-event]').forEach(function (link) {
+        link.addEventListener('click', function () {
+          if (typeof gtag === 'function') {
+            gtag('event', link.dataset.analyticsEvent, {
+              event_category: 'homepage_cta',
+              event_label: link.href,
+              link_text: link.innerText.trim()
+            });
+          }
+        });
+      });
+    });
   </script>
 </head>
 <body>
@@ -50,11 +69,15 @@
           <p class="pitch">I’m not asking for pity. I’m telling the truth about what it looks like when a family falls through the cracks and still has to wake up every day and figure it out.</p>
 
           <nav class="cta-row" aria-label="Support and story links">
-            <a class="btn btn-primary" href="https://venmo.com/u/insidethesneakers" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://venmo.com/u/insidethesneakers" target="_blank" rel="noopener noreferrer" data-analytics-event="click_donate_venmo">
               <span>Donate</span>
               <small>Venmo</small>
             </a>
-            <a class="btn btn-secondary" href="https://inthesneakers.medium.com/inside-the-sneakers-ee40d48885b3" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://cash.app/$inthesneakers" target="_blank" rel="noopener noreferrer" data-analytics-event="click_donate_cashapp">
+              <span>Donate</span>
+              <small>Cash App</small>
+            </a>
+            <a class="btn btn-secondary" href="https://inthesneakers.medium.com/inside-the-sneakers-ee40d48885b3" target="_blank" rel="noopener noreferrer" data-analytics-event="click_read_story_medium">
               <span>Read the Story</span>
               <small>Medium</small>
             </a>
