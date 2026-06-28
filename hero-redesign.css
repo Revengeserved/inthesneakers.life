@@ -1,18 +1,19 @@
-/* Inside the Sneakers — logo-inspired neon landing page */
+/* Inside the Sneakers — final neon landing page
+   Brand lockup: #F008BB hot pink + #0FE9EF electric cyan.
+*/
 :root {
   --bg: #020108;
   --ink: #fff9ff;
   --soft: #eadff1;
   --muted: #bfb0cf;
-  --logo-pink: #ff38d4;
-  --logo-blue: #20f4ff;
-  --logo-violet: #7d55ff;
-  --logo-lime: #eaff48;
-  --logo-orange: #ff8a2b;
-  --panel: rgba(7, 3, 17, 0.72);
-  --panel-strong: rgba(7, 3, 17, 0.88);
+  --brand-pink: #F008BB;
+  --brand-blue: #0FE9EF;
+  --brand-violet: #7d55ff;
+  --brand-lime: #eaff48;
+  --panel: rgba(7, 3, 17, 0.76);
+  --panel-strong: rgba(7, 3, 17, 0.9);
   --line: rgba(255, 255, 255, 0.22);
-  --shadow: rgba(0, 0, 0, 0.72);
+  --shadow: rgba(0, 0, 0, 0.74);
 }
 
 * { box-sizing: border-box; }
@@ -21,11 +22,11 @@ html { scroll-behavior: smooth; }
 body {
   min-height: 100vh;
   color: var(--ink);
-  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-family: "Syne Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   background:
-    radial-gradient(circle at 12% 18%, rgba(255, 56, 212, 0.24), transparent 28%),
-    radial-gradient(circle at 85% 10%, rgba(32, 244, 255, 0.18), transparent 32%),
-    radial-gradient(circle at 60% 92%, rgba(125, 85, 255, 0.20), transparent 34%),
+    radial-gradient(circle at 12% 18%, rgba(240, 8, 187, 0.24), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(15, 233, 239, 0.18), transparent 32%),
+    radial-gradient(circle at 60% 92%, rgba(125, 85, 255, 0.2), transparent 34%),
     var(--bg);
 }
 
@@ -40,11 +41,11 @@ a { color: inherit; text-decoration: none; }
   min-height: 100svh;
   display: grid;
   place-items: center;
-  padding: clamp(14px, 3vw, 30px);
+  padding: clamp(12px, 2.6vw, 28px);
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.93) 0%, rgba(3,1,10,0.72) 42%, rgba(0,0,0,0.18) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.94) 0%, rgba(3,1,10,0.76) 44%, rgba(0,0,0,0.2) 100%),
     url("Inthesneakers-1.jpeg") center right / cover no-repeat;
 }
 
@@ -54,10 +55,10 @@ a { color: inherit; text-decoration: none; }
   inset: -22%;
   pointer-events: none;
   background:
-    radial-gradient(circle at 18% 18%, rgba(255, 56, 212, 0.38), transparent 25%),
-    radial-gradient(circle at 24% 80%, rgba(255, 138, 43, 0.20), transparent 24%),
-    radial-gradient(circle at 76% 26%, rgba(32, 244, 255, 0.30), transparent 27%),
-    radial-gradient(circle at 58% 54%, rgba(125, 85, 255, 0.18), transparent 30%);
+    radial-gradient(circle at 18% 18%, rgba(240, 8, 187, 0.4), transparent 25%),
+    radial-gradient(circle at 27% 82%, rgba(240, 8, 187, 0.18), transparent 24%),
+    radial-gradient(circle at 76% 26%, rgba(15, 233, 239, 0.34), transparent 27%),
+    radial-gradient(circle at 58% 54%, rgba(125, 85, 255, 0.2), transparent 30%);
   filter: blur(7px);
   transform: rotate(-4deg);
 }
@@ -68,11 +69,11 @@ a { color: inherit; text-decoration: none; }
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(to bottom, transparent 52%, rgba(0,0,0,0.88)),
-    linear-gradient(135deg, rgba(234,255,72,0.10), transparent 31%),
+    linear-gradient(to bottom, transparent 48%, rgba(0,0,0,0.9)),
+    linear-gradient(135deg, rgba(15,233,239,0.09), transparent 31%),
     repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 4px);
   mix-blend-mode: screen;
-  opacity: 0.58;
+  opacity: 0.6;
 }
 
 .container {
@@ -87,8 +88,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 .hero-panel {
-  width: min(640px, 100%);
-  padding: clamp(20px, 3.6vw, 38px);
+  width: min(650px, 100%);
+  padding: clamp(18px, 3.4vw, 36px);
   border: 1px solid var(--line);
   border-radius: 28px;
   background:
@@ -96,66 +97,68 @@ a { color: inherit; text-decoration: none; }
     var(--panel);
   box-shadow:
     0 24px 90px var(--shadow),
-    0 0 52px rgba(255, 56, 212, 0.22),
-    inset 0 0 30px rgba(32, 244, 255, 0.10);
+    0 0 52px rgba(240, 8, 187, 0.25),
+    inset 0 0 30px rgba(15, 233, 239, 0.11);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .eyebrow {
   margin: 0 0 10px;
-  color: var(--logo-lime);
+  color: var(--brand-blue);
+  font-family: "Rubik Glitch", "Syne Mono", monospace;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.74rem;
-  font-weight: 900;
+  letter-spacing: 0.22em;
+  font-size: 0.76rem;
   text-shadow:
-    0 0 10px rgba(234,255,72,0.55),
-    0 0 24px rgba(255,138,43,0.25);
+    0 0 10px rgba(15, 233, 239, 0.7),
+    0 0 24px rgba(240, 8, 187, 0.26);
 }
 
 h1 {
   margin: 0;
-  font-family: "Rubik Glitch", Inter, Arial, sans-serif;
-  font-size: clamp(3.45rem, 9.6vw, 7rem);
-  line-height: 0.82;
+  font-family: "Horizon", "Rubik Glitch", Impact, fantasy;
+  font-size: clamp(3.4rem, 9.8vw, 7.15rem);
+  line-height: 0.84;
   letter-spacing: -0.045em;
-  background: linear-gradient(112deg, var(--logo-blue) 0%, #ffffff 34%, var(--logo-lime) 48%, var(--logo-pink) 72%, var(--logo-violet) 100%);
+  text-transform: uppercase;
+  background: linear-gradient(112deg, var(--brand-blue) 0%, #ffffff 32%, var(--brand-pink) 70%, var(--brand-violet) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   text-shadow:
-    0 0 12px rgba(32,244,255,0.52),
-    0 0 34px rgba(255,56,212,0.34),
-    0 0 58px rgba(125,85,255,0.22);
+    0 0 12px rgba(15,233,239,0.55),
+    0 0 34px rgba(240,8,187,0.38),
+    0 0 58px rgba(125,85,255,0.24);
 }
 
 .callout {
-  margin: 16px 0 12px;
+  margin: 15px 0 12px;
   padding-left: 14px;
-  border-left: 4px solid var(--logo-pink);
+  border-left: 4px solid var(--brand-pink);
   color: #fff;
-  font-family: "Syne Mono", monospace;
+  font-family: "Syne Mono", ui-monospace, monospace;
   font-size: clamp(1rem, 2.05vw, 1.24rem);
   line-height: 1.38;
-  text-shadow: 0 0 20px rgba(255,56,212,0.42);
+  text-shadow: 0 0 20px rgba(240,8,187,0.48);
 }
 
 .pitch {
   margin: 0;
   max-width: 590px;
   color: var(--soft);
-  font-size: clamp(0.95rem, 1.65vw, 1.04rem);
-  line-height: 1.52;
+  font-size: clamp(0.94rem, 1.6vw, 1.03rem);
+  line-height: 1.5;
 }
 
-.pitch + .pitch { margin-top: 9px; }
+.pitch.lead { color: #fff; }
+.pitch + .pitch { margin-top: 8px; }
 
 .cta-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 11px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .btn {
@@ -163,20 +166,26 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
+  min-height: 52px;
   padding: 10px 16px;
   border-radius: 999px;
   border: 1px solid rgba(255,255,255,0.26);
   color: #fff;
+  font-family: "Syne Mono", ui-monospace, monospace;
   font-weight: 900;
   letter-spacing: 0.01em;
   background:
-    linear-gradient(135deg, rgba(255,56,212,0.98), rgba(125,85,255,0.94) 52%, rgba(32,244,255,0.88));
+    linear-gradient(135deg, rgba(240,8,187,0.98), rgba(125,85,255,0.93) 54%, rgba(15,233,239,0.9));
   box-shadow:
-    0 12px 30px rgba(255,56,212,0.30),
-    0 0 24px rgba(32,244,255,0.16),
+    0 12px 30px rgba(240,8,187,0.34),
+    0 0 24px rgba(15,233,239,0.18),
     inset 0 0 18px rgba(255,255,255,0.08);
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.btn-secondary {
+  background:
+    linear-gradient(135deg, rgba(240,8,187,0.98), rgba(240,8,187,0.86) 48%, rgba(15,233,239,0.9));
 }
 
 .btn:hover,
@@ -184,16 +193,16 @@ h1 {
   transform: translateY(-2px);
   filter: saturate(1.18) brightness(1.04);
   box-shadow:
-    0 14px 34px rgba(255,56,212,0.38),
-    0 0 30px rgba(32,244,255,0.22),
-    inset 0 0 20px rgba(255,255,255,0.10);
+    0 14px 34px rgba(240,8,187,0.42),
+    0 0 30px rgba(15,233,239,0.24),
+    inset 0 0 20px rgba(255,255,255,0.1);
   outline: none;
 }
 
-.btn span { font-size: 0.98rem; }
+.btn span { font-size: 0.96rem; }
 .btn small {
   margin-top: 3px;
-  font-size: 0.74rem;
+  font-size: 0.72rem;
   color: rgba(255,255,255,0.88);
 }
 
@@ -202,7 +211,7 @@ h1 {
     align-items: end;
     padding: 12px;
     background:
-      linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.83) 46%, #000 100%),
+      linear-gradient(to bottom, rgba(0,0,0,0.08), rgba(0,0,0,0.84) 46%, #000 100%),
       url("Inthesneakers-1.jpeg") center top / cover no-repeat;
   }
 
@@ -210,21 +219,21 @@ h1 {
     padding: 18px;
     border-radius: 22px;
     background:
-      linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.025)),
+      linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.025)),
       var(--panel-strong);
   }
 
   .cta-row {
     grid-template-columns: 1fr;
     gap: 9px;
-    margin-top: 18px;
+    margin-top: 17px;
   }
 
-  .btn { width: 100%; min-height: 52px; }
+  .btn { width: 100%; min-height: 51px; }
 }
 
 @media (max-width: 420px) {
-  h1 { font-size: clamp(3rem, 18vw, 4.25rem); }
-  .pitch { font-size: 0.93rem; line-height: 1.48; }
-  .callout { margin-top: 14px; }
+  h1 { font-size: clamp(3rem, 17vw, 4.1rem); }
+  .pitch { font-size: 0.91rem; line-height: 1.46; }
+  .callout { margin-top: 13px; }
 }
