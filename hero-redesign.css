@@ -1,38 +1,36 @@
-/* Inside the Sneakers — rebuilt neon landing page
-   Brand lockup: #F008BB hot pink + #0FE9EF electric cyan.
+/* Inside the Sneakers — Oakland Tribune-inspired landing page
+   Palette pulled toward blue crown + ruby-red tower glow.
 */
 :root {
-  --its-pink: #F008BB;
-  --its-cyan: #0FE9EF;
-  --its-black: #050507;
-  --its-charcoal: #111217;
-  --its-dirty-white: #E8E1D7;
-  --its-concrete-gray: #8A8580;
-  --its-smoke-gray: #3A3A3D;
-  --its-dusty-taupe: #B8ADA2;
-  --its-violet: #7d55ff;
-  --line: rgba(232, 225, 215, 0.15);
-  --shadow-heavy: 0 26px 90px rgba(0, 0, 0, 0.68);
-  --glow-pink: 0 0 18px rgba(240, 8, 187, 0.72), 0 0 42px rgba(240, 8, 187, 0.38);
-  --glow-cyan: 0 0 18px rgba(15, 233, 239, 0.65), 0 0 38px rgba(15, 233, 239, 0.28);
+  --tribune-blue: #1EA7FF;
+  --tribune-ruby: #D43A63;
+  --oakland-night: #06080C;
+  --deep-night: #020306;
+  --concrete: #26292F;
+  --fog-white: #F3F3F3;
+  --paper: #E8E1D7;
+  --muted: #AFA9A2;
+  --line: rgba(243, 243, 243, 0.13);
+  --ruby-glow: 0 0 14px rgba(212, 58, 99, 0.62), 0 0 34px rgba(212, 58, 99, 0.28);
+  --blue-glow: 0 0 14px rgba(30, 167, 255, 0.62), 0 0 34px rgba(30, 167, 255, 0.28);
+  --shadow-heavy: 0 26px 90px rgba(0, 0, 0, 0.72);
   --max-width: 1120px;
 }
 
 * { box-sizing: border-box; }
-html { min-height: 100%; scroll-behavior: smooth; background: var(--its-black); }
+html { min-height: 100%; scroll-behavior: smooth; background: var(--oakland-night); }
 html, body { margin: 0; padding: 0; }
 
 body {
   min-height: 100vh;
-  color: var(--its-dirty-white);
-  font-family: "Syne Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: var(--fog-white);
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   background:
-    radial-gradient(circle at 14% 16%, rgba(240, 8, 187, 0.24), transparent 28%),
-    radial-gradient(circle at 88% 22%, rgba(15, 233, 239, 0.18), transparent 30%),
-    radial-gradient(circle at 52% 92%, rgba(125, 85, 255, 0.16), transparent 30%),
-    linear-gradient(140deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 100%),
-    linear-gradient(180deg, #050507 0%, #0b0b10 48%, #050507 100%);
-  background-size: auto, auto, auto, 22px 22px, auto;
+    radial-gradient(circle at 18% 16%, rgba(212, 58, 99, 0.22), transparent 30%),
+    radial-gradient(circle at 84% 20%, rgba(30, 167, 255, 0.18), transparent 28%),
+    linear-gradient(140deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 100%),
+    linear-gradient(180deg, var(--oakland-night) 0%, #090B11 50%, var(--deep-night) 100%);
+  background-size: auto, auto, 22px 22px, auto;
   overflow-x: hidden;
 }
 
@@ -44,10 +42,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.026) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
   background-size: 74px 74px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.75), transparent 85%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.72), transparent 84%);
   z-index: 0;
 }
 
@@ -56,7 +54,7 @@ body::after {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at center, transparent 0 45%, rgba(0,0,0,0.72) 100%);
+  background: radial-gradient(circle at center, transparent 0 42%, rgba(0,0,0,0.78) 100%);
   z-index: 0;
 }
 
@@ -67,10 +65,10 @@ body::after {
   z-index: 20;
   transform: translateY(-160%);
   padding: 0.75rem 1rem;
-  border: 1px solid var(--its-cyan);
+  border: 1px solid var(--tribune-blue);
   border-radius: 999px;
-  color: var(--its-black);
-  background: var(--its-cyan);
+  color: var(--deep-night);
+  background: var(--tribune-blue);
 }
 
 .skip-link:focus { transform: translateY(0); }
@@ -90,16 +88,16 @@ body::after {
   min-height: min(760px, calc(100vh - 2rem));
   min-height: min(760px, calc(100svh - 2rem));
   display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(320px, 1.14fr);
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
   gap: clamp(1.1rem, 4vw, 3.25rem);
   align-items: center;
   padding: clamp(1rem, 3.6vw, 2.85rem);
   border: 1px solid var(--line);
   border-radius: 34px;
   background:
-    linear-gradient(120deg, rgba(17, 18, 23, 0.84), rgba(5, 5, 7, 0.92)),
-    linear-gradient(135deg, rgba(240, 8, 187, 0.12), rgba(15, 233, 239, 0.07));
-  box-shadow: var(--shadow-heavy), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    linear-gradient(120deg, rgba(38, 41, 47, 0.76), rgba(2, 3, 6, 0.94)),
+    linear-gradient(135deg, rgba(212, 58, 99, 0.10), rgba(30, 167, 255, 0.08));
+  box-shadow: var(--shadow-heavy), inset 0 0 0 1px rgba(255, 255, 255, 0.035);
   position: relative;
   overflow: hidden;
 }
@@ -110,8 +108,8 @@ body::after {
   inset: -2px;
   pointer-events: none;
   border-radius: inherit;
-  background: linear-gradient(90deg, rgba(240, 8, 187, 0.52), transparent 30% 70%, rgba(15, 233, 239, 0.5));
-  opacity: 0.45;
+  background: linear-gradient(90deg, rgba(212, 58, 99, 0.48), transparent 28% 70%, rgba(30, 167, 255, 0.5));
+  opacity: 0.46;
   padding: 1px;
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -125,10 +123,10 @@ body::after {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(5,5,7,0.12), rgba(5,5,7,0.68)),
+    linear-gradient(180deg, rgba(6,8,12,0.04), rgba(6,8,12,0.72)),
     url("Inthesneakers-1.jpeg") center / cover no-repeat;
-  border: 1px solid rgba(232, 225, 215, 0.12);
-  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.72), var(--glow-cyan);
+  border: 1px solid rgba(243, 243, 243, 0.12);
+  box-shadow: inset 0 0 70px rgba(0, 0, 0, 0.72), var(--blue-glow);
 }
 
 .hero__image-card::before,
@@ -145,7 +143,7 @@ body::after {
   height: 240px;
   left: -78px;
   top: 34%;
-  background: rgba(240, 8, 187, 0.32);
+  background: rgba(212, 58, 99, 0.34);
 }
 
 .hero__image-card::after {
@@ -153,7 +151,7 @@ body::after {
   height: 280px;
   right: -98px;
   bottom: 8%;
-  background: rgba(15, 233, 239, 0.24);
+  background: rgba(30, 167, 255, 0.24);
 }
 
 .hero__image-text {
@@ -161,12 +159,12 @@ body::after {
   left: 1rem;
   bottom: 1rem;
   z-index: 2;
-  font-family: "Rubik Glitch", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(1.35rem, 3.7vw, 3.4rem);
-  line-height: 0.92;
-  letter-spacing: 0.04em;
-  color: rgba(232, 225, 215, 0.88);
-  text-shadow: var(--glow-pink);
+  font-family: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(1.65rem, 4.2vw, 3.8rem);
+  line-height: 0.88;
+  letter-spacing: 0.055em;
+  color: rgba(243, 243, 243, 0.92);
+  text-shadow: var(--ruby-glow);
 }
 
 .hero__content {
@@ -176,60 +174,47 @@ body::after {
 }
 
 .eyebrow {
-  margin: 0 0 0.75rem;
-  color: var(--its-cyan);
-  font-family: "Rubik Glitch", "Syne Mono", monospace;
+  margin: 0 0 0.72rem;
+  color: var(--tribune-blue);
+  font-family: "IBM Plex Mono", monospace;
   text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: clamp(0.78rem, 1.3vw, 0.92rem);
-  text-shadow: var(--glow-cyan);
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  font-size: clamp(0.72rem, 1.1vw, 0.86rem);
+  text-shadow: 0 0 10px rgba(30, 167, 255, 0.38);
 }
 
 h1 {
   margin: 0;
-  font-family: Horizon, "Rubik Glitch", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(2.55rem, 6.4vw, 6.1rem);
-  line-height: 0.9;
-  letter-spacing: -0.055em;
-  text-transform: none;
-  color: #fff7fb;
+  font-family: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(3.6rem, 9vw, 8rem);
+  line-height: 0.86;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+  color: var(--fog-white);
   text-wrap: balance;
   text-shadow:
-    0 0 7px rgba(255, 255, 255, 0.32),
-    0 0 22px rgba(240, 8, 187, 0.52),
-    0 0 42px rgba(15, 233, 239, 0.18);
-}
-
-.hero-quote {
-  margin: clamp(0.65rem, 1.8vw, 1rem) 0 0;
-  padding-left: 1rem;
-  border-left: 4px solid rgba(15, 233, 239, 0.78);
-  color: var(--its-cyan);
-  font-size: clamp(1rem, 2vw, 1.35rem);
-  font-weight: 500;
-  line-height: 1.35;
-  text-shadow:
-    0 0 4px rgba(15, 233, 239, 0.28),
-    0 0 10px rgba(15, 233, 239, 0.14);
-  opacity: 0.92;
-}
-
-.pitch,
-.promise {
-  max-width: 58ch;
-  line-height: 1.58;
+    0 0 5px rgba(243, 243, 243, 0.26),
+    0 0 18px rgba(212, 58, 99, 0.50),
+    0 0 36px rgba(212, 58, 99, 0.24),
+    0 0 24px rgba(30, 167, 255, 0.16);
 }
 
 .pitch {
+  max-width: 58ch;
   margin: 0.82rem 0 0;
-  color: rgba(232, 225, 215, 0.78);
-  font-size: clamp(0.9rem, 1.45vw, 1rem);
+  color: rgba(243, 243, 243, 0.78);
+  font-size: clamp(0.94rem, 1.45vw, 1.03rem);
+  line-height: 1.58;
 }
 
 .pitch.lead {
-  margin-top: clamp(1rem, 2.3vw, 1.25rem);
-  color: rgba(232, 225, 215, 0.96);
-  font-size: clamp(0.96rem, 1.6vw, 1.08rem);
+  margin-top: clamp(1rem, 2.3vw, 1.3rem);
+  padding-left: 1rem;
+  border-left: 4px solid var(--tribune-ruby);
+  color: rgba(243, 243, 243, 0.96);
+  font-size: clamp(1rem, 1.75vw, 1.16rem);
+  line-height: 1.45;
 }
 
 .cta-row {
@@ -247,10 +232,10 @@ h1 {
   justify-content: center;
   padding: 0.78rem 0.95rem;
   border-radius: 999px;
-  border: 1px solid rgba(232, 225, 215, 0.16);
+  border: 1px solid rgba(243, 243, 243, 0.16);
   color: #fff;
   font-weight: 900;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
   text-align: center;
   text-transform: uppercase;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, filter 180ms ease;
@@ -259,44 +244,39 @@ h1 {
 .btn span { font-size: clamp(0.78rem, 1.25vw, 0.96rem); }
 .btn small {
   margin-top: 3px;
-  color: rgba(255, 255, 255, 0.86);
+  color: rgba(255, 255, 255, 0.84);
   font-size: 0.7rem;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.12em;
 }
 
 .btn:hover,
 .btn:focus-visible {
   transform: translateY(-2px);
-  filter: saturate(1.15) brightness(1.04);
+  filter: saturate(1.12) brightness(1.03);
   outline: none;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, rgba(240, 8, 187, 0.98), rgba(240, 8, 187, 0.72));
-  box-shadow: var(--glow-pink);
+  background: linear-gradient(135deg, rgba(212, 58, 99, 0.95), rgba(212, 58, 99, 0.64));
+  box-shadow: var(--ruby-glow);
 }
 
 .btn-primary:hover,
 .btn-primary:focus-visible {
   border-color: rgba(255, 255, 255, 0.42);
-  box-shadow: 0 0 22px rgba(240, 8, 187, 0.82), 0 0 58px rgba(240, 8, 187, 0.42);
+  box-shadow: 0 0 22px rgba(212, 58, 99, 0.74), 0 0 52px rgba(212, 58, 99, 0.34);
 }
 
 .btn-secondary {
-  background: linear-gradient(135deg, rgba(240, 8, 187, 0.9), rgba(15, 233, 239, 0.42));
-  box-shadow: var(--glow-pink), var(--glow-cyan);
+  background: rgba(6, 8, 12, 0.42);
+  border-color: rgba(30, 167, 255, 0.74);
+  box-shadow: var(--blue-glow);
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus-visible {
-  border-color: rgba(15, 233, 239, 0.65);
-  box-shadow: 0 0 22px rgba(15, 233, 239, 0.72), 0 0 58px rgba(240, 8, 187, 0.38);
-}
-
-.promise {
-  margin: clamp(0.95rem, 2.4vw, 1.4rem) 0 0;
-  color: var(--its-dusty-taupe);
-  font-size: clamp(0.82rem, 1.25vw, 0.95rem);
+  border-color: rgba(30, 167, 255, 0.9);
+  box-shadow: 0 0 22px rgba(30, 167, 255, 0.68), 0 0 52px rgba(30, 167, 255, 0.26);
 }
 
 @media (max-width: 900px) {
@@ -341,9 +321,9 @@ h1 {
     border-radius: 22px;
   }
 
-  h1 { font-size: clamp(2.45rem, 14vw, 4rem); }
-  .hero-quote { font-size: 1rem; }
+  h1 { font-size: clamp(3.1rem, 17vw, 5.05rem); }
   .pitch { font-size: 0.9rem; }
+  .pitch.lead { font-size: 0.98rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
