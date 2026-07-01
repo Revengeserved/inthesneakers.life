@@ -188,26 +188,30 @@ body::after {
 h1 {
   margin: 0;
   font-family: Horizon, "Rubik Glitch", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(3.15rem, 8vw, 7.8rem);
-  line-height: 0.82;
-  letter-spacing: -0.06em;
+  font-size: clamp(2.55rem, 6.4vw, 6.1rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
   text-transform: none;
   color: #fff7fb;
   text-wrap: balance;
   text-shadow:
-    0 0 8px rgba(255, 255, 255, 0.44),
-    0 0 24px rgba(240, 8, 187, 0.72),
-    0 0 58px rgba(15, 233, 239, 0.28);
+    0 0 7px rgba(255, 255, 255, 0.32),
+    0 0 22px rgba(240, 8, 187, 0.52),
+    0 0 42px rgba(15, 233, 239, 0.18);
 }
 
-.callout {
-  margin: clamp(0.9rem, 2.4vw, 1.35rem) 0 0;
+.hero-quote {
+  margin: clamp(0.65rem, 1.8vw, 1rem) 0 0;
   padding-left: 1rem;
-  border-left: 4px solid var(--its-pink);
-  color: var(--its-dirty-white);
-  font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+  border-left: 4px solid rgba(15, 233, 239, 0.78);
+  color: var(--its-cyan);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 500;
   line-height: 1.35;
-  text-shadow: var(--glow-pink);
+  text-shadow:
+    0 0 4px rgba(15, 233, 239, 0.28),
+    0 0 10px rgba(15, 233, 239, 0.14);
+  opacity: 0.92;
 }
 
 .pitch,
@@ -230,7 +234,7 @@ h1 {
 
 .cta-row {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.8rem;
   margin: clamp(1.05rem, 3vw, 1.65rem) 0 0;
 }
@@ -337,8 +341,8 @@ h1 {
     border-radius: 22px;
   }
 
-  h1 { font-size: clamp(2.8rem, 17vw, 4.8rem); }
-  .callout { font-size: 1rem; }
+  h1 { font-size: clamp(2.45rem, 14vw, 4rem); }
+  .hero-quote { font-size: 1rem; }
   .pitch { font-size: 0.9rem; }
 }
 
