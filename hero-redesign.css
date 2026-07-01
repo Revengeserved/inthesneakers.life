@@ -191,7 +191,7 @@ h1 {
   font-size: clamp(3.15rem, 8vw, 7.8rem);
   line-height: 0.82;
   letter-spacing: -0.06em;
-  text-transform: uppercase;
+  text-transform: none;
   color: #fff7fb;
   text-wrap: balance;
   text-shadow:
