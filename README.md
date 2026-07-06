@@ -6,7 +6,26 @@ Production website for **Inside the Sneakers**.
 
 - Primary domain: `https://inthesneakers.life/`
 - Source repo: `Revengeserved/inthesneakers.life`
-- Production host: Vercel
+- Intended production host: Vercel static site
+
+## Project boundary
+
+This repo is only for the Inside the Sneakers public website and brand system.
+
+It should include:
+
+- Website homepage files
+- Brand assets, logo, banner, and visual identity
+- Fundraiser/support copy
+- Medium/blog/social links and public storytelling copy
+- Deployment notes for the website
+
+It should **not** include:
+
+- Madera / Modera apartment evidence
+- VA/legal packets
+- Lease disputes, resident ledgers, or legal correspondence
+- Private case documents that belong in the legal project
 
 ## What this repo should contain
 
@@ -18,7 +37,7 @@ This is intentionally simple:
 - `vercel.json` — Vercel static-site routing/security config
 - `README.md` — this launch note
 
-No extra pages, no old sections, no generated analytics reports, and no confusing GitHub Pages setup files.
+No extra pages, no old sections, no legal evidence, no VA packet files, no generated analytics reports, and no confusing GitHub Pages setup files.
 
 ## Google Analytics
 
