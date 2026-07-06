@@ -78,22 +78,16 @@ body::after {
   min-height: 100svh;
   display: grid;
   place-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
   padding: clamp(0.85rem, 2.5vw, 2rem);
   position: relative;
   z-index: 1;
 }
 
-.hero {
+.hero,
+.content-card {
   width: min(100%, var(--max-width));
-  min-height: min(760px, calc(100vh - 2rem));
-  min-height: min(760px, calc(100svh - 2rem));
-  display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
-  gap: clamp(1.1rem, 4vw, 3.25rem);
-  align-items: center;
-  padding: clamp(1rem, 3.6vw, 2.85rem);
   border: 1px solid var(--line);
-  border-radius: 34px;
   background:
     linear-gradient(120deg, rgba(38, 41, 47, 0.76), rgba(2, 3, 6, 0.94)),
     linear-gradient(135deg, rgba(212, 58, 99, 0.10), rgba(30, 167, 255, 0.08));
@@ -102,7 +96,19 @@ body::after {
   overflow: hidden;
 }
 
-.hero::before {
+.hero {
+  min-height: min(760px, calc(100vh - 2rem));
+  min-height: min(760px, calc(100svh - 2rem));
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+  gap: clamp(1.1rem, 4vw, 3.25rem);
+  align-items: center;
+  padding: clamp(1rem, 3.6vw, 2.85rem);
+  border-radius: 34px;
+}
+
+.hero::before,
+.content-card::before {
   content: "";
   position: absolute;
   inset: -2px;
@@ -184,11 +190,11 @@ body::after {
   text-shadow: 0 0 10px rgba(30, 167, 255, 0.38);
 }
 
-h1 {
+h1,
+h2 {
   margin: 0;
   font-family: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  font-size: clamp(3.6rem, 9vw, 8rem);
-  line-height: 0.86;
+  line-height: 0.9;
   letter-spacing: 0.015em;
   text-transform: uppercase;
   color: var(--fog-white);
@@ -200,8 +206,12 @@ h1 {
     0 0 24px rgba(30, 167, 255, 0.16);
 }
 
-.pitch {
-  max-width: 58ch;
+h1 { font-size: clamp(3.6rem, 9vw, 8rem); }
+h2 { font-size: clamp(2.5rem, 6vw, 5.1rem); }
+
+.pitch,
+.story-copy {
+  max-width: 64ch;
   margin: 0.82rem 0 0;
   color: rgba(243, 243, 243, 0.78);
   font-size: clamp(0.94rem, 1.45vw, 1.03rem);
@@ -215,6 +225,19 @@ h1 {
   color: rgba(243, 243, 243, 0.96);
   font-size: clamp(1rem, 1.75vw, 1.16rem);
   line-height: 1.45;
+}
+
+.story-copy p { margin: 0 0 0.92rem; }
+.story-copy p:last-child { margin-bottom: 0; }
+.need-line {
+  padding: 1rem;
+  border-left: 4px solid var(--tribune-ruby);
+  color: var(--fog-white);
+  background: rgba(212, 58, 99, 0.10);
+}
+.need-line strong {
+  color: #fff;
+  text-shadow: var(--ruby-glow);
 }
 
 .cta-row {
@@ -279,6 +302,42 @@ h1 {
   box-shadow: 0 0 22px rgba(30, 167, 255, 0.68), 0 0 52px rgba(30, 167, 255, 0.26);
 }
 
+.content-card {
+  border-radius: 30px;
+  padding: clamp(1.2rem, 4vw, 2.75rem);
+}
+
+.urgent-card {
+  border-color: rgba(212, 58, 99, 0.38);
+}
+
+.card-button {
+  width: min(100%, 360px);
+  margin-top: 1.35rem;
+}
+
+.content-grid {
+  width: min(100%, var(--max-width));
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: clamp(1rem, 3vw, 1.6rem);
+}
+
+.content-grid .content-card { width: 100%; }
+
+blockquote {
+  margin: 1rem 0 0;
+  color: var(--fog-white);
+  font-family: "Bebas Neue", Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  line-height: 0.96;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: var(--blue-glow);
+}
+
+.quote-card .story-copy { margin-top: 1rem; }
+
 @media (max-width: 900px) {
   .page-shell {
     display: block;
@@ -303,6 +362,16 @@ h1 {
 
   .hero__content { max-width: none; }
 
+  .content-card,
+  .content-grid {
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
   .cta-row {
     grid-template-columns: 1fr;
     gap: 0.68rem;
@@ -322,8 +391,12 @@ h1 {
   }
 
   h1 { font-size: clamp(3.1rem, 17vw, 5.05rem); }
-  .pitch { font-size: 0.9rem; }
+  h2 { font-size: clamp(2.35rem, 14vw, 4.1rem); }
+  .pitch,
+  .story-copy { font-size: 0.9rem; }
   .pitch.lead { font-size: 0.98rem; }
+  .content-card { border-radius: 24px; }
+  .eyebrow { letter-spacing: 0.18em; }
 }
 
 @media (prefers-reduced-motion: reduce) {
