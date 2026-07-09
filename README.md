@@ -72,7 +72,7 @@ Vercel should be connected to this GitHub repo:
 In the domain provider, point:
 
 | Type | Host | Value |
-|---|---|
+|---|---|---|
 | A | @ | 76.76.21.21 |
 | CNAME | www | cname.vercel-dns.com |
 
