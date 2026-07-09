@@ -6,7 +6,8 @@ Production website for **Inside the Sneakers**.
 
 - Primary domain: `https://inthesneakers.life/`
 - Source repo: `Revengeserved/inthesneakers.life`
-- Intended production host: Vercel static site
+- Current intended page type: simple landing page
+- Current landing page links: Venmo + Medium blog only
 
 ## Project boundary
 
@@ -26,18 +27,19 @@ It should **not** include:
 - VA/legal packets
 - Lease disputes, resident ledgers, or legal correspondence
 - Private case documents that belong in the legal project
+- Cash App links or Cash App donation copy
 
 ## What this repo should contain
 
 This is intentionally simple:
 
-- `index.html` — the homepage
+- `index.html` — the homepage landing page
 - `hero-redesign.css` — the homepage styling
 - `Inthesneakers-1.jpeg` — the hero image
-- `vercel.json` — Vercel static-site routing/security config
+- `vercel.json` — Vercel static-site routing/security config if Vercel is connected
 - `README.md` — this launch note
 
-No extra pages, no old sections, no legal evidence, no VA packet files, no generated analytics reports, and no confusing GitHub Pages setup files.
+No extra pages, no old sections, no legal evidence, no VA packet files, no generated analytics reports, no Cash App links, and no confusing mixed-project files.
 
 ## Google Analytics
 
@@ -48,8 +50,7 @@ GA4 is installed directly in `index.html` with measurement ID:
 Tracked events:
 
 - `click_donate_venmo`
-- `click_donate_cashapp`
-- `click_read_story_medium`
+- `click_blog_medium`
 
 To verify: open Google Analytics → Realtime → visit the site → tap the buttons.
 
@@ -73,3 +74,7 @@ In the domain provider, point:
 | CNAME | www | cname.vercel-dns.com |
 
 After DNS is changed, add `inthesneakers.life` and `www.inthesneakers.life` to the Vercel project domains.
+
+## Current issue to verify
+
+The repo is now corrected to a two-link landing page, but the live domain may still be serving an older deployed/cached version. Verify the active hosting source before assuming the code edit failed.
