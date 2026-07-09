@@ -6,8 +6,9 @@ Production website for **Inside the Sneakers**.
 
 - Primary domain: `https://inthesneakers.life/`
 - Source repo: `Revengeserved/inthesneakers.life`
-- Current intended page type: simple landing page
-- Current landing page links: Venmo + Medium blog only
+- Current intended page type: expanded homepage / landing page hybrid
+- Current public links: Venmo + Medium blog only
+- Recent blog posts should appear in the homepage posts section when the Medium feed loads
 
 ## Project boundary
 
@@ -31,15 +32,15 @@ It should **not** include:
 
 ## What this repo should contain
 
-This is intentionally simple:
+This is intentionally focused:
 
-- `index.html` — the homepage landing page
-- `hero-redesign.css` — the homepage styling
-- `Inthesneakers-1.jpeg` — the hero image
+- `index.html` — the homepage with hero, story, proof/timeline, latest posts, support, and Medium sections
+- `hero-redesign.css` — the homepage styling with the Oakland Tribune-inspired palette
+- `Inthesneakers-1.jpeg` — the hero/background image asset
 - `vercel.json` — Vercel static-site routing/security config if Vercel is connected
 - `README.md` — this launch note
 
-No extra pages, no old sections, no legal evidence, no VA packet files, no generated analytics reports, no Cash App links, and no confusing mixed-project files.
+No legal evidence, no VA packet files, no generated analytics reports, no Cash App links, and no confusing mixed-project files.
 
 ## Google Analytics
 
@@ -50,7 +51,9 @@ GA4 is installed directly in `index.html` with measurement ID:
 Tracked events:
 
 - `click_donate_venmo`
-- `click_blog_medium`
+- `click_read_story_medium`
+- `click_medium_post`
+- `click_medium_fallback`
 
 To verify: open Google Analytics → Realtime → visit the site → tap the buttons.
 
@@ -69,7 +72,7 @@ Vercel should be connected to this GitHub repo:
 In the domain provider, point:
 
 | Type | Host | Value |
-|---|---|---|
+|---|---|
 | A | @ | 76.76.21.21 |
 | CNAME | www | cname.vercel-dns.com |
 
@@ -77,4 +80,4 @@ After DNS is changed, add `inthesneakers.life` and `www.inthesneakers.life` to t
 
 ## Current issue to verify
 
-The repo is now corrected to a two-link landing page, but the live domain may still be serving an older deployed/cached version. Verify the active hosting source before assuming the code edit failed.
+The repo is corrected to the expanded homepage with Venmo + Medium only, but the live domain may still be serving an older deployed/cached version. Verify the active hosting source before assuming the code edit failed.
