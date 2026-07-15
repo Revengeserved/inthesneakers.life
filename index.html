@@ -23,20 +23,15 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-XNFNVGXCFL');
-
     function trackClick(eventName) {
       if (typeof gtag === 'function') {
-        gtag('event', eventName, {
-          event_category: 'engagement',
-          event_label: 'Inside the Sneakers landing page'
-        });
+        gtag('event', eventName, {event_category: 'engagement', event_label: 'Inside the Sneakers landing page'});
       }
     }
   </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-
   <main id="main-content" class="landing-page">
     <section class="landing-card" aria-labelledby="home-title">
       <p class="eyebrow">Inside the Sneakers</p>
@@ -49,7 +44,6 @@
           <span>Venmo</span>
           <strong>@insidethesneakers</strong>
         </a>
-
         <a class="link-box link-box-medium" href="https://inthesneakers.medium.com/inside-the-sneakers-a-story-of-survival-faith-and-being-seen-40ea86a0083e" target="_blank" rel="noopener noreferrer" onclick="trackClick('click_read_story_medium')">
           <span>Medium</span>
           <strong>Read the Introduction</strong>
@@ -58,10 +52,10 @@
     </section>
 
     <section class="medium-intro" aria-labelledby="medium-intro-title">
-      <p class="section-kicker">Start here</p>
-      <h2 id="medium-intro-title">The introduction lives on Medium.</h2>
-      <p>Before the updates, before the posts, before the noise — this is the backstory. It’s not just corporate America. It’s the greed that lives inside corporate America, the government calling itself democracy, the brainwashing, the way we fail each other as human beings, and the failures of one man still trying to hold his family together.</p>
-      <a class="story-link" href="https://inthesneakers.medium.com/inside-the-sneakers-a-story-of-survival-faith-and-being-seen-40ea86a0083e" target="_blank" rel="noopener noreferrer" onclick="trackClick('click_medium_intro')">Read the full introduction</a>
+      <p class="section-kicker">Featured Story</p>
+      <h2 id="medium-intro-title">My Landlord Charged Me Nearly $5,000 for “Biohazard” Cleaning</h2>
+      <p>A firsthand account of fighting for answers, transparency, and fairness while facing a housing crisis with my family.</p>
+      <a class="story-link" href="https://inthesneakers.medium.com/my-landlord-charged-me-nearly-5-000-for-biohazard-cleaning-16c8c103ede4" target="_blank" rel="noopener noreferrer" onclick="trackClick('click_featured_housing_story')">Read the article</a>
     </section>
   </main>
 </body>
