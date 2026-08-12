@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Reviewer Portal | Inside the Sneakers</title>
+  <meta name="theme-color" content="#000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{--red:#ff2f2f;--teal:#32c6ad;--line:rgba(255,255,255,.16);--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:"IBM Plex Mono",monospace;line-height:1.6}.wrap{width:min(920px,calc(100% - 2rem));margin:auto;padding:4rem 0}.kicker{color:var(--teal);font-size:.75rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}h1,h2{font-family:"Bebas Neue",Impact,sans-serif;text-transform:uppercase;line-height:.9}h1{font-size:clamp(4rem,12vw,7.5rem);margin:.5rem 0 1rem;text-shadow:0 0 24px rgba(50,198,173,.3)}h2{font-size:2.4rem;margin:0 0 .7rem}.panel{border:1px solid var(--line);border-radius:24px;background:#090909;padding:1.2rem;margin:1rem 0}.reviewer{display:inline-flex;padding:.4rem .7rem;border:1px solid var(--teal);border-radius:999px;color:var(--teal);font-weight:900;text-transform:uppercase;font-size:.72rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.item{border:1px solid var(--line);border-radius:18px;padding:1rem;background:#050505}.item strong{display:block}.item span{color:var(--muted);font-size:.84rem}.btn{display:inline-flex;margin-top:.8rem;padding:.75rem 1rem;border:1px solid var(--red);border-radius:999px;color:white;text-decoration:none;text-transform:uppercase;font-weight:900;font-size:.75rem}.note{color:var(--muted);font-size:.82rem}@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding-top:2rem}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXG8LMSNDE"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());
+    const params=new URLSearchParams(location.search);const reviewer=(params.get('r')||'direct').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60);
+    gtag('config','G-MXG8LMSNDE',{page_title:'Reviewer Portal',reviewer_code:reviewer});
+    gtag('event','reviewer_portal_open',{reviewer_code:reviewer,page_path:location.pathname});
+    window.addEventListener('DOMContentLoaded',()=>{document.getElementById('reviewer-name').textContent=reviewer==='direct'?'Private reviewer link':reviewer.replace(/[-_]/g,' ');});
+  </script>
+</head>
+<body><main class="wrap">
+  <p class="kicker">Inside the Sneakers · Private Review Entry</p>
+  <span class="reviewer" id="reviewer-name">Private reviewer link</span>
+  <h1>Housing Case Review</h1>
+  <p>This is the low-friction review entrance. No account creation. No password to remember. The private link identifies which review invitation was opened so I can tell whether the material is actually reaching the organizations I asked for help.</p>
+  <div class="panel"><h2>Current status</h2><p>Management told me in person that its lawyers had filed for eviction. I have not yet independently verified the filing itself. The case hub distinguishes that report from confirmed documentary evidence.</p><a class="btn" href="/case-hub.html">Open case hub</a></div>
+  <div class="panel"><h2>Reviewer map</h2><div class="grid">
+    <div class="item"><strong>1. Current status</strong><span>What is happening now, including what is verified and what is not.</span></div>
+    <div class="item"><strong>2. Evidence at a glance</strong><span>Disputed charges, invoice questions, payment history, and unresolved evidence gaps.</span></div>
+    <div class="item"><strong>3. Outreach record</strong><span>Who has been contacted, who could not assist, and which avenues are still active.</span></div>
+    <div class="item"><strong>4. Source method</strong><span>Verified fact, user statement, conflict, and missing-evidence labels are kept separate.</span></div>
+  </div></div>
+  <div class="panel"><h2>Privacy</h2><p>The public-facing materials redact resident address and unit information where appropriate. Vendor information remains visible when it is relevant to verification. Original source evidence is preserved separately and is not exposed through this page by default.</p></div>
+  <p class="note">Tracking note: this page records that a reviewer-specific link was opened. It does not prove which individual person clicked it, and a forwarded link could be opened by someone else. That distinction matters.</p>
+</main></body></html>
