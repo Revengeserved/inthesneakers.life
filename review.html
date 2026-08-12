@@ -10,29 +10,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <style>
-    :root{--red:#ff2f2f;--teal:#32c6ad;--line:rgba(255,255,255,.16);--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:"IBM Plex Mono",monospace;line-height:1.6}.wrap{width:min(920px,calc(100% - 2rem));margin:auto;padding:4rem 0}.kicker{color:var(--teal);font-size:.75rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}h1,h2{font-family:"Bebas Neue",Impact,sans-serif;text-transform:uppercase;line-height:.9}h1{font-size:clamp(4rem,12vw,7.5rem);margin:.5rem 0 1rem;text-shadow:0 0 24px rgba(50,198,173,.3)}h2{font-size:2.4rem;margin:0 0 .7rem}.panel{border:1px solid var(--line);border-radius:24px;background:#090909;padding:1.2rem;margin:1rem 0}.reviewer{display:inline-flex;padding:.4rem .7rem;border:1px solid var(--teal);border-radius:999px;color:var(--teal);font-weight:900;text-transform:uppercase;font-size:.72rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.item{border:1px solid var(--line);border-radius:18px;padding:1rem;background:#050505}.item strong{display:block}.item span{color:var(--muted);font-size:.84rem}.btn{display:inline-flex;margin-top:.8rem;padding:.75rem 1rem;border:1px solid var(--red);border-radius:999px;color:white;text-decoration:none;text-transform:uppercase;font-weight:900;font-size:.75rem}.note{color:var(--muted);font-size:.82rem}@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding-top:2rem}}
+    :root{--red:#ff2f2f;--teal:#32c6ad;--line:rgba(255,255,255,.16);--muted:#aaa}*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:"IBM Plex Mono",monospace;line-height:1.6}.wrap{width:min(920px,calc(100% - 2rem));margin:auto;padding:4rem 0}.kicker{color:var(--teal);font-size:.75rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}h1,h2{font-family:"Bebas Neue",Impact,sans-serif;text-transform:uppercase;line-height:.9}h1{font-size:clamp(4rem,12vw,7.5rem);margin:.5rem 0 1rem;text-shadow:0 0 24px rgba(50,198,173,.3)}h2{font-size:2.4rem;margin:0 0 .7rem}.panel{border:1px solid var(--line);border-radius:24px;background:#090909;padding:1.2rem;margin:1rem 0}.reviewer{display:inline-flex;padding:.4rem .7rem;border:1px solid var(--teal);border-radius:999px;color:var(--teal);font-weight:900;text-transform:uppercase;font-size:.72rem}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.item{border:1px solid var(--line);border-radius:18px;padding:1rem;background:#050505}.item strong{display:block}.item span,.note,.status{color:var(--muted);font-size:.84rem}.btn{display:inline-flex;margin:.8rem .5rem 0 0;padding:.75rem 1rem;border:1px solid var(--red);border-radius:999px;color:white;text-decoration:none;text-transform:uppercase;font-weight:900;font-size:.75rem}.btn.teal{border-color:var(--teal)}.hidden{display:none}.error{color:#ff8b8b}@media(max-width:700px){.grid{grid-template-columns:1fr}.wrap{padding-top:2rem}}
   </style>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXG8LMSNDE"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());
-    const params=new URLSearchParams(location.search);const reviewer=(params.get('r')||'direct').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,60);
-    gtag('config','G-MXG8LMSNDE',{page_title:'Reviewer Portal',reviewer_code:reviewer});
-    gtag('event','reviewer_portal_open',{reviewer_code:reviewer,page_path:location.pathname});
-    window.addEventListener('DOMContentLoaded',()=>{document.getElementById('reviewer-name').textContent=reviewer==='direct'?'Private reviewer link':reviewer.replace(/[-_]/g,' ');});
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MXG8LMSNDE',{send_page_view:false});</script>
 </head>
 <body><main class="wrap">
   <p class="kicker">Inside the Sneakers · Private Review Entry</p>
-  <span class="reviewer" id="reviewer-name">Private reviewer link</span>
+  <span class="reviewer" id="reviewer-name">Validating reviewer</span>
   <h1>Housing Case Review</h1>
-  <p>This is the low-friction review entrance. No account creation. No password to remember. The private link identifies which review invitation was opened so I can tell whether the material is actually reaching the organizations I asked for help.</p>
-  <div class="panel"><h2>Current status</h2><p>Management told me in person that its lawyers had filed for eviction. I have not yet independently verified the filing itself. The case hub distinguishes that report from confirmed documentary evidence.</p><a class="btn" href="https://inthesneakers-life.vercel.app/case-hub.html">Open case hub</a></div>
-  <div class="panel"><h2>Reviewer map</h2><div class="grid">
-    <div class="item"><strong>1. Current status</strong><span>What is happening now, including what is verified and what is not.</span></div>
-    <div class="item"><strong>2. Evidence at a glance</strong><span>Disputed charges, invoice questions, payment history, and unresolved evidence gaps.</span></div>
-    <div class="item"><strong>3. Outreach record</strong><span>Who has been contacted, who could not assist, and which avenues are still active.</span></div>
-    <div class="item"><strong>4. Source method</strong><span>Verified fact, user statement, conflict, and missing-evidence labels are kept separate.</span></div>
-  </div></div>
-  <div class="panel"><h2>Privacy</h2><p>The public-facing materials redact resident address and unit information where appropriate. Vendor information remains visible when it is relevant to verification. Original source evidence is preserved separately and is not exposed through this page by default.</p></div>
-  <p class="note">Tracking note: this page records that a reviewer-specific link was opened. It does not prove which individual person clicked it, and a forwarded link could be opened by someone else. That distinction matters.</p>
-</main></body></html>
+  <p id="status" class="status">Checking your signed reviewer invitation…</p>
+
+  <section id="portal" class="hidden">
+    <p>This is a low-friction review entrance: no account creation and no password to remember. The invitation itself is signed and expires, so changing the organization code in the URL does not grant access.</p>
+    <div class="panel"><h2>Current status</h2><p>Management told me in person that its lawyers had filed for eviction. I have not yet independently verified the filing itself. The public case hub distinguishes that report from confirmed documentary evidence.</p><a class="btn" href="https://inthesneakers-life-revengeofsloppy-9002s-projects.vercel.app/case-hub.html">Open public case hub</a><a class="btn teal" id="evidence-link" href="#">Open protected evidence</a></div>
+    <div class="panel"><h2>Reviewer map</h2><div class="grid">
+      <div class="item"><strong>1. Current status</strong><span>What is happening now, including what is verified and what is not.</span></div>
+      <div class="item"><strong>2. Protected evidence</strong><span>Reviewer-safe exhibits and summaries behind the signed invitation.</span></div>
+      <div class="item"><strong>3. Outreach record</strong><span>Who has been contacted, who could not assist, and which avenues are still active.</span></div>
+      <div class="item"><strong>4. Source method</strong><span>Verified fact, user statement, conflict, and missing-evidence labels are kept separate.</span></div>
+    </div></div>
+    <div class="panel"><h2>Privacy</h2><p>Resident address and unit information remain redacted where appropriate. Vendor information stays visible when relevant to verification. Raw Google Drive folders and raw private originals are never exposed through this website.</p></div>
+    <p class="note">Tracking note: this records use of a reviewer-specific signed invitation and reviewer-safe evidence pages. It does not prove which individual human clicked a forwarded link.</p>
+  </section>
+</main>
+<script>
+  const params=new URLSearchParams(location.search);
+  const reviewer=(params.get('r')||'').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,40);
+  const token=params.get('t')||'';
+  const statusEl=document.querySelector('#status');
+  const portal=document.querySelector('#portal');
+  const nameEl=document.querySelector('#reviewer-name');
+
+  async function validate(){
+    if(!reviewer||!token){nameEl.textContent='Unauthorized';statusEl.textContent='This reviewer link is incomplete.';statusEl.className='error';return;}
+    const q=new URLSearchParams({r:reviewer,t:token});
+    const response=await fetch(`/api/reviewer-auth?${q.toString()}`,{cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok){nameEl.textContent='Unauthorized';statusEl.textContent=data.reason==='expired'?'This reviewer invitation has expired.':'This reviewer invitation is not authorized.';statusEl.className='error';return;}
+    nameEl.textContent=data.reviewer.replace(/[-_]/g,' ');
+    statusEl.textContent=`Authorized through ${new Date(data.expiresAt).toLocaleString()}.`;
+    document.querySelector('#evidence-link').href=`/evidence.html?${q.toString()}`;
+    portal.classList.remove('hidden');
+    gtag('event','page_view',{page_title:`Reviewer | ${data.reviewer}`,page_location:location.origin+location.pathname,page_path:location.pathname});
+  }
+  validate().catch(err=>{nameEl.textContent='Unavailable';statusEl.textContent='Unable to validate this reviewer invitation.';statusEl.className='error';console.error(err)});
+</script></body></html>
