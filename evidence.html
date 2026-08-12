@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Protected Evidence | Inside the Sneakers</title>
+  <style>
+    :root{--bg:#000;--panel:#0b0b0b;--line:rgba(255,255,255,.16);--text:#f7f7f7;--muted:#aaa;--teal:#32c6ad;--red:#ff4a4a}*{box-sizing:border-box}body{margin:0;background:#000;color:var(--text);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;line-height:1.55}.wrap{width:min(960px,calc(100% - 2rem));margin:auto;padding:3rem 0}.kicker{color:var(--teal);font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem}h1{font-size:clamp(2.5rem,8vw,5rem);line-height:.95;margin:.5rem 0 1rem}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:1.2rem;margin:1rem 0}.item{border-top:1px solid var(--line);padding:1rem 0}.item:first-child{border-top:0}.meta{color:var(--muted);font-size:.84rem}.btn{display:inline-block;margin:.5rem .5rem 0 0;padding:.7rem 1rem;border:1px solid var(--teal);border-radius:999px;color:white;text-decoration:none;font-weight:800}.btn.red{border-color:var(--red)}.hidden{display:none}.error{color:#ff8c8c}.status{color:var(--muted)}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXG8LMSNDE"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MXG8LMSNDE',{send_page_view:false});</script>
+</head>
+<body><main class="wrap">
+  <p class="kicker">Inside the Sneakers · Protected Evidence</p>
+  <h1>Reviewer Evidence Access</h1>
+  <p id="status" class="status">Validating reviewer invitation…</p>
+  <section id="content" class="hidden">
+    <div class="panel"><strong id="reviewer"></strong><p class="meta">This access is tied to a signed reviewer invitation. Raw Google Drive folders are not exposed through this site.</p></div>
+    <div id="items" class="panel"></div>
+  </section>
+</main>
+<script>
+  const params=new URLSearchParams(location.search);
+  const reviewer=(params.get('r')||'').replace(/[^a-zA-Z0-9_-]/g,'').slice(0,40);
+  const token=params.get('t')||'';
+  const doc=params.get('doc')||'';
+  const statusEl=document.querySelector('#status');
+  const content=document.querySelector('#content');
+  const itemsEl=document.querySelector('#items');
+
+  function evidenceUrl(id){const q=new URLSearchParams({r:reviewer,t:token,doc:id});return `/evidence.html?${q.toString()}`}
+  function track(title){gtag('event','page_view',{page_title:title,page_location:location.origin+location.pathname,page_path:location.pathname});}
+
+  async function load(){
+    if(!reviewer||!token){statusEl.textContent='This evidence link is incomplete.';statusEl.className='error';return;}
+    const q=new URLSearchParams({r:reviewer,t:token});if(doc)q.set('doc',doc);
+    const response=await fetch(`/api/evidence?${q.toString()}`,{cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok){statusEl.textContent=data.reason==='expired'?'This reviewer invitation has expired.':'This reviewer invitation is not authorized.';statusEl.className='error';return;}
+    document.querySelector('#reviewer').textContent=`Reviewer: ${data.reviewer}`;
+    content.classList.remove('hidden');statusEl.textContent='Authorized reviewer link.';
+    if(data.item){
+      track(`Evidence | ${data.reviewer} | ${data.item.id}`);
+      const item=data.item;
+      itemsEl.innerHTML='';
+      const box=document.createElement('div');box.className='item';
+      const h=document.createElement('h2');h.textContent=item.title;
+      const p=document.createElement('p');p.textContent=item.summary;
+      const m=document.createElement('p');m.className='meta';m.textContent=`Status: ${item.status}. ${data.originalPolicy}`;
+      box.append(h,p,m);
+      if(item.publicPath){const a=document.createElement('a');a.className='btn';a.href=item.publicPath;a.textContent='Open redacted public exhibit';box.append(a)}
+      const back=document.createElement('a');back.className='btn red';back.href=evidenceUrl('').replace('&doc=','');back.textContent='Back to evidence index';box.append(back);
+      itemsEl.append(box);
+    } else {
+      track(`Evidence | ${data.reviewer} | index`);
+      itemsEl.innerHTML='';
+      data.items.forEach(item=>{const box=document.createElement('div');box.className='item';const h=document.createElement('h2');h.textContent=item.title;const p=document.createElement('p');p.textContent=item.summary;const m=document.createElement('p');m.className='meta';m.textContent=`Status: ${item.status}`;const a=document.createElement('a');a.className='btn';a.href=evidenceUrl(item.id);a.textContent='Review item';box.append(h,p,m,a);itemsEl.append(box)});
+    }
+  }
+  load().catch(err=>{statusEl.textContent='Unable to load protected evidence.';statusEl.className='error';console.error(err)});
+</script></body></html>
