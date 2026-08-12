@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Housing Case Hub | Inside the Sneakers</title>
+  <meta name="description" content="A source-backed, continuously updated housing case hub documenting disputed charges, payment efforts, eviction risk, evidence, and outreach." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{--bg:#000;--panel:#090909;--panel2:#111;--text:#f7f7f7;--muted:#b8b8b8;--red:#ff2f2f;--teal:#32c6ad;--line:rgba(255,255,255,.16)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 15% 10%,rgba(255,47,47,.13),transparent 26%),radial-gradient(circle at 85% 18%,rgba(50,198,173,.12),transparent 25%),#000;color:var(--text);font-family:"IBM Plex Mono",monospace;line-height:1.58}a{color:inherit}.wrap{width:min(1120px,calc(100% - 2rem));margin:auto}.topbar{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.topbar .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.9rem 0}.brand{font-weight:900;text-transform:uppercase;letter-spacing:.13em}.nav{display:flex;gap:.8rem;flex-wrap:wrap}.nav a{font-size:.76rem;text-transform:uppercase;text-decoration:none;color:var(--muted)}.hero{padding:5rem 0 2rem}.kicker{margin:0 0 .7rem;color:var(--teal);font-size:.76rem;font-weight:900;letter-spacing:.22em;text-transform:uppercase}.hero h1,.section h2{font-family:"Bebas Neue",Impact,sans-serif;text-transform:uppercase;letter-spacing:.025em}.hero h1{font-size:clamp(4rem,11vw,8.4rem);line-height:.84;margin:0;max-width:900px;text-shadow:0 0 20px rgba(255,47,47,.5)}.hero .dek{max-width:780px;color:#ddd;font-size:clamp(1rem,2vw,1.2rem)}.status{margin:2rem 0;padding:1.4rem;border:1px solid rgba(255,47,47,.55);border-radius:24px;background:linear-gradient(135deg,rgba(255,47,47,.11),rgba(0,0,0,.65));box-shadow:0 0 44px rgba(255,47,47,.12)}.status-head{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap}.badge{display:inline-flex;padding:.35rem .62rem;border:1px solid currentColor;border-radius:999px;font-size:.68rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.badge.red{color:#ff7474}.badge.teal{color:#67dfca}.status h2{font-family:"Bebas Neue",Impact,sans-serif;font-size:clamp(2rem,5vw,3.4rem);margin:.5rem 0}.status p{margin:.65rem 0;color:#e4e4e4}.source-note{font-size:.78rem;color:var(--muted);border-left:2px solid var(--teal);padding-left:.75rem}.section{padding:2.4rem 0}.section h2{font-size:clamp(2.4rem,6vw,4.4rem);line-height:.95;margin:.2rem 0 .8rem}.section-intro{max-width:800px;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.2rem}.card{border:1px solid var(--line);background:rgba(10,10,10,.88);border-radius:20px;padding:1.15rem;min-height:180px}.card h3{margin:.15rem 0 .55rem;font-size:1rem;text-transform:uppercase}.card p{margin:.4rem 0;color:#ccc;font-size:.88rem}.card strong{color:white}.timeline{display:grid;gap:.8rem;margin-top:1.2rem}.event{display:grid;grid-template-columns:130px 1fr;gap:1rem;border:1px solid var(--line);border-radius:18px;padding:1rem;background:#080808}.event time{font-weight:900;color:var(--teal)}.event p{margin:.2rem 0;color:#ccc}.infographic{margin-top:1.2rem;border:1px solid rgba(50,198,173,.45);border-radius:26px;padding:1.2rem;background:linear-gradient(145deg,rgba(50,198,173,.09),rgba(0,0,0,.8))}.infographic-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin-top:1rem}.metric{background:#000;border:1px solid var(--line);border-radius:16px;padding:1rem;min-height:135px}.metric .big{display:block;font-family:"Bebas Neue",Impact,sans-serif;font-size:2.7rem;line-height:1;color:white}.metric small{color:var(--muted)}.org-columns{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.2rem}.org-group{border:1px solid var(--line);border-radius:22px;padding:1.15rem;background:#090909}.org-group h3{margin:.1rem 0 1rem;font-size:1rem;text-transform:uppercase}.org{padding:.85rem 0;border-top:1px solid rgba(255,255,255,.08)}.org:first-of-type{border-top:0}.org strong{display:block}.org span{display:block;color:var(--muted);font-size:.82rem;margin-top:.25rem}.disclosure{margin-top:1.1rem;padding:1rem;border:1px solid rgba(255,255,255,.18);border-radius:18px;color:#ccc;background:#050505}.cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:.75rem 1rem;border-radius:999px;border:1px solid rgba(255,47,47,.7);text-decoration:none;text-transform:uppercase;font-size:.75rem;font-weight:900;letter-spacing:.1em;background:#090909;box-shadow:0 0 22px rgba(255,47,47,.18)}.btn.teal{border-color:rgba(50,198,173,.7);box-shadow:0 0 22px rgba(50,198,173,.18)}footer{padding:3rem 0;color:#888;font-size:.8rem}@media(max-width:850px){.grid,.infographic-grid,.org-columns{grid-template-columns:1fr}.event{grid-template-columns:1fr}.nav{display:none}.hero{padding-top:3rem}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXG8LMSNDE"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-MXG8LMSNDE');</script>
+</head>
+<body>
+<header class="topbar"><div class="wrap"><a class="brand" href="/">Inside the Sneakers</a><nav class="nav"><a href="#status">Status</a><a href="#evidence">Evidence</a><a href="#outreach">Outreach</a><a href="#method">Method</a></nav></div></header>
+<main class="wrap">
+  <section class="hero">
+    <p class="kicker">Housing Case Hub · Public Record</p>
+    <h1>What Happened. What I Can Prove. What I Still Need.</h1>
+    <p class="dek">I built this page because the story has gotten too complicated for another long email. This is the living, source-backed version: the disputed charges, the payments, the documents, the people I contacted, and what is happening to my family right now.</p>
+  </section>
+
+  <section class="status" id="status">
+    <div class="status-head"><span class="badge red">Urgent update</span><span class="badge teal">August 11, 2026</span></div>
+    <h2>Management Told Me Their Lawyers Filed.</h2>
+    <p>According to what management told me in person, their lawyers have filed for eviction. I have not yet received or independently verified the court filing itself, so I am not presenting that as a confirmed court record until I have it in hand.</p>
+    <p>What I can document is that I have repeatedly asked for accurate accounting and supporting documents, disputed charges I do not believe belong on my current tenancy, made payments, and tried in good faith to work this out before it got here.</p>
+    <p>I am still trying to pay what I legitimately owe. I am still asking for a clear, accurate explanation of the balance. And I am still trying to keep my family housed.</p>
+    <p class="source-note"><strong>Evidence status:</strong> “Management told me their lawyers filed” is currently a documented user report repeated in an August 11 email to St. Vincent de Paul, not yet an independently verified court filing. Earlier emails and payment records document repeated requests for accounting, supporting records, and payment efforts.</p>
+  </section>
+
+  <section class="section" id="evidence">
+    <p class="kicker">Evidence at a glance</p><h2>The Case, Without the Spin</h2>
+    <p class="section-intro">The goal here is not to pretend every question has already been answered. It is to separate what the records show from what is disputed and what still needs verification.</p>
+    <div class="infographic" aria-label="Housing case evidence infographic">
+      <div class="infographic-grid">
+        <div class="metric"><span class="big">$4,850</span><strong>Biohazard invoice</strong><br><small>One lump-sum line item; vendor information remains visible in the public reproduction.</small></div>
+        <div class="metric"><span class="big">1</span><strong>Quantity listed</strong><br><small>No separate line-item pricing for labor, materials, equipment, disposal, or ozone treatment.</small></div>
+        <div class="metric"><span class="big">2 DAYS</span><strong>Date anomaly</strong><br><small>A Dec. 2 “Final Cleaning after paint” entry appears on an invoice dated Nov. 30.</small></div>
+        <div class="metric"><span class="big">OPEN</span><strong>Evidence gaps</strong><br><small>Inspection records, vendor work orders/payment proof, delivery timing, and a wrong-unit invoice conflict remain under review.</small></div>
+      </div>
+      <div class="cta"><a class="btn teal" href="/#invoice-evidence">See the redacted invoice evidence</a></div>
+    </div>
+
+    <div class="timeline">
+      <article class="event"><time>July 8</time><div><strong>Asked for the correct balance, ledger, and lease basis before paying.</strong><p>Management responded with a ledger; the accounting dispute continued.</p></div></article>
+      <article class="event"><time>July 10–17</time><div><strong>Repeated requests for corrected accounting and supporting documentation.</strong><p>Emails document requests regarding Unit 509 charges, ledgers, supporting records, and resolution of the disputed balance.</p></div></article>
+      <article class="event"><time>July 13 & 27</time><div><strong>Payments documented.</strong><p>Payment confirmations exist in the communication record while the disputed balance remained unresolved.</p></div></article>
+      <article class="event"><time>July 29+</time><div><strong>Escalated to tenant advocates, legal aid, public officials, and nonprofits.</strong><p>Outreach expanded as the risk of eviction increased.</p></div></article>
+      <article class="event"><time>Aug. 11</time><div><strong>Management reportedly said its lawyers had filed.</strong><p>The filing itself is still needed before this page will call that a verified court event.</p></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="outreach">
+    <p class="kicker">Full transparency</p><h2>Who I Asked for Help</h2>
+    <p class="section-intro">I do not want to imply that nobody cared or that every organization refused. Some could not take the case. Some gave referrals. Some are still reviewing. Some are the reason I still have a little hope.</p>
+    <div class="org-columns">
+      <div class="org-group">
+        <h3>Could not take the case / no direct representation confirmed</h3>
+        <div class="org"><strong>Greenstein & McDonald</strong><span>Responded August 4 that they were too busy with current cases and could not assist at that time.</span></div>
+        <div class="org"><strong>Catholic Charities East Bay</strong><span>Contacted for eviction-prevention assistance. They responded with information/referrals; direct financial assistance is not confirmed in the records reviewed for this page.</span></div>
+        <div class="org"><strong>HERA</strong><span>Responded with guidance and encouraged consultation with private tenant attorneys. No representation is confirmed.</span></div>
+        <div class="org"><strong>East Bay Community Law Center</strong><span>Contacted July 29. A confirmed representation outcome was not found in the records reviewed for this first version.</span></div>
+      </div>
+      <div class="org-group">
+        <h3>Still active / hopeful</h3>
+        <div class="org"><strong>Centro Legal de la Raza</strong><span>Eligibility process progressed to a tenant-rights attorney advice consultation scheduled for August 17. Their email expressly states this does not yet create an attorney-client relationship.</span></div>
+        <div class="org"><strong>Society of St. Vincent de Paul of Alameda County</strong><span>Requested the lease and ledger; on August 5, Edmundo Nevel said the information had been forwarded to the person reviewing the request.</span></div>
+        <div class="org"><strong>Oakland City Council / constituent offices</strong><span>District 3 routed the location issue to District 2; another city contact said they would check with Councilmember Fife and District 3 colleagues.</span></div>
+        <div class="org"><strong>VA / HUD-VASH contacts</strong><span>Repeatedly copied and updated throughout the housing dispute. Their communications remain part of the active evidence record.</span></div>
+      </div>
+    </div>
+    <div class="disclosure"><strong>This list is intentionally conservative.</strong> If an organization has not clearly accepted or declined the matter in the records I reviewed, I label it that way rather than guessing. This page will be updated as responses come in.</div>
+  </section>
+
+  <section class="section" id="method">
+    <p class="kicker">How this page works</p><h2>Receipts First</h2>
+    <div class="grid">
+      <article class="card"><h3>Verified fact</h3><p>Directly supported by a document, email, ledger, payment confirmation, invoice, or other source I can identify.</p></article>
+      <article class="card"><h3>User statement</h3><p>Something I personally report happened but which is not yet independently documented in the evidence set.</p></article>
+      <article class="card"><h3>Still needed</h3><p>Evidence that should exist or would materially improve confidence, such as the actual court filing or missing vendor/inspection records.</p></article>
+    </div>
+    <p class="section-intro" style="margin-top:1rem">The underlying project organizer currently tracks canonical originals, Gmail-native invoice attachments, ledger reconciliation, duplicates, and open evidence gaps. Original evidence stays preserved; public pages use redacted or summarized copies where privacy requires it.</p>
+    <div class="cta"><a class="btn" href="/">Back to Inside the Sneakers</a><a class="btn teal" href="/review.html">Reviewer portal</a></div>
+  </section>
+</main>
+<footer><div class="wrap">Inside the Sneakers · Public housing case hub · Updated August 11, 2026. This is documentation and personal narrative, not legal advice.</div></footer>
+</body>
+</html>
