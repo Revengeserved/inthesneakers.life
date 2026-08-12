@@ -1,4 +1,4 @@
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "TGTXGD2V3F4KPAXX8WDFD1E382QB5QDBGN";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 const API_BASE = "https://api.etherscan.io/v2/api";
 
 const DEFAULT_CHAINS = [
@@ -222,6 +222,7 @@ function findings(timeline) {
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") return json(res, 405, { error: "Use POST." });
+  if (!ETHERSCAN_API_KEY) return json(res, 503, { error: "Wallet scanning is not configured." });
 
   try {
     const body = typeof req.body === "string" ? JSON.parse(req.body) : (req.body || {});
@@ -229,9 +230,12 @@ module.exports = async function handler(req, res) {
     if (!isValidAddress(address)) return json(res, 400, { error: "Enter a valid EVM wallet address." });
 
     const requestedIds = Array.isArray(body.chainIds) && body.chainIds.length
-      ? body.chainIds.map(String).slice(0, 12)
-      : DEFAULT_CHAINS.map((chain) => chain.id);
-    const chains = requestedIds.map((id) => DEFAULT_CHAINS.find((chain) => chain.id === id) || { id, name: `Chain ${id}` });
+      ? body.chainIds.map(String).slice(0, 3)
+      : DEFAULT_CHAINS.slice(0, 3).map((chain) => chain.id);
+    const chains = requestedIds
+      .map((id) => DEFAULT_CHAINS.find((chain) => chain.id === id))
+      .filter(Boolean);
+    if (!chains.length) return json(res, 400, { error: "Choose at least one supported chain." });
 
     const timeline = [];
     const balances = [];
@@ -257,7 +261,8 @@ module.exports = async function handler(req, res) {
 
       for (const [type, action] of ACTIONS) {
         try {
-          const rows = await fetchRows(chain.id, address, action, Number(body.maxPages || 4));
+          const maxPages = Math.min(Math.max(Number(body.maxPages || 1), 1), 2);
+          const rows = await fetchRows(chain.id, address, action, maxPages);
           timeline.push(...normalize(rows, type, chain, address));
         } catch (error) {
           errors.push({ chainId: chain.id, chainName: chain.name, stage: action, error: error.message });

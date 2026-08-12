@@ -1,0 +1,46 @@
+name: Repository checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required public-site files
+        shell: bash
+        run: |
+          test -f index.html
+          test -f hero-redesign.css
+          test -f README.md
+          test -f vercel.json
+
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          shopt -s nullglob
+          files=(api/*.js)
+          for file in "${files[@]}"; do
+            node --check "$file"
+          done
+
+      - name: Check JSON syntax
+        shell: bash
+        run: |
+          node -e 'for (const file of ["package.json", "vercel.json", "analytics-report.json"]) JSON.parse(require("fs").readFileSync(file, "utf8"))'
+
+      - name: Scan tracked text for obvious private keys
+        shell: bash
+        run: |
+          if git grep -nE -- '-----BEGIN (RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----'; then
+            echo "Private-key material must not be committed."
+            exit 1
+          fi
