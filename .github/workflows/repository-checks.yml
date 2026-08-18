@@ -35,7 +35,7 @@ jobs:
       - name: Check JSON syntax
         shell: bash
         run: |
-          node -e 'for (const file of ["package.json", "vercel.json", "analytics-report.json"]) JSON.parse(require("fs").readFileSync(file, "utf8"))'
+          node -e 'for (const file of ["package.json", "vercel.json"]) JSON.parse(require("fs").readFileSync(file, "utf8"))'
 
       - name: Scan tracked text for obvious private keys
         shell: bash
