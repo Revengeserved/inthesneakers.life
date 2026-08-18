@@ -44,18 +44,25 @@ No legal evidence, no VA packet files, no generated analytics reports, no Cash A
 
 ## Google Analytics
 
-GA4 is installed directly in `index.html` with measurement ID:
+GA4 is installed directly in `index.html` with the production measurement ID:
 
-- `G-XNFNVGXCFL`
+- `G-MXG8LMSNDE`
 
-Tracked events:
+Tracked events currently emitted by the homepage:
 
 - `click_donate_venmo`
-- `click_read_story_medium`
-- `click_medium_post`
-- `click_medium_fallback`
+- `click_read_introduction`
+- `click_continue_on_medium`
+- `click_featured_housing_story`
 
-To verify: open Google Analytics → Realtime → visit the site → tap the buttons.
+The Google Analytics Data API uses a separate numeric GA4 property ID. That value must be configured in Vercel as `GA_PROPERTY_ID` (or the legacy-compatible `GA4_PROPERTY_ID`) and is intentionally not hardcoded in this public repository.
+
+The protected admin analytics endpoint also requires:
+
+- `ANALYTICS_API_TOKEN`
+- `GOOGLE_SERVICE_ACCOUNT_JSON`
+
+To verify client-side tracking: open Google Analytics → Realtime → visit the site → tap the buttons.
 
 ## Vercel setup target
 
