@@ -1,5 +1,7 @@
 const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 
+const GA_PROPERTY_ID = '392399720';
+
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   res.setHeader('X-Robots-Tag', 'noindex, nofollow');
@@ -14,16 +16,6 @@ module.exports = async function handler(req, res) {
 
   if (!configuredToken) return res.status(503).json({ error: 'ANALYTICS_API_TOKEN is not configured in Vercel.' });
   if (!suppliedToken || suppliedToken !== configuredToken) return res.status(401).json({ error: 'Unauthorized' });
-
-  // Google Analytics Data API requires the numeric GA4 property ID, not the G-XXXXXXXXXX measurement ID.
-  // Prefer Google's GA_PROPERTY_ID convention while retaining GA4_PROPERTY_ID for deployment compatibility.
-  const propertyId = process.env.GA_PROPERTY_ID || process.env.GA4_PROPERTY_ID;
-  if (!propertyId) {
-    return res.status(503).json({ error: 'GA_PROPERTY_ID is not configured in Vercel.' });
-  }
-  if (!/^\d+$/.test(propertyId)) {
-    return res.status(503).json({ error: 'GA_PROPERTY_ID must be a numeric Google Analytics property ID.' });
-  }
 
   const rawCredentials = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
   if (!rawCredentials) return res.status(503).json({ error: 'GOOGLE_SERVICE_ACCOUNT_JSON is not configured in Vercel.' });
@@ -41,7 +33,7 @@ module.exports = async function handler(req, res) {
 
     const [summaryResponse, pagesResponse, sourcesResponse] = await Promise.all([
       client.runReport({
-        property: `properties/${propertyId}`,
+        property: `properties/${GA_PROPERTY_ID}`,
         dateRanges,
         metrics: [
           { name: 'activeUsers' },
@@ -51,7 +43,7 @@ module.exports = async function handler(req, res) {
         ]
       }),
       client.runReport({
-        property: `properties/${propertyId}`,
+        property: `properties/${GA_PROPERTY_ID}`,
         dateRanges,
         dimensions: [{ name: 'pagePath' }],
         metrics: [{ name: 'screenPageViews' }],
@@ -59,7 +51,7 @@ module.exports = async function handler(req, res) {
         limit: 10
       }),
       client.runReport({
-        property: `properties/${propertyId}`,
+        property: `properties/${GA_PROPERTY_ID}`,
         dateRanges,
         dimensions: [{ name: 'sessionSource' }, { name: 'sessionMedium' }],
         metrics: [{ name: 'sessions' }],
@@ -71,7 +63,7 @@ module.exports = async function handler(req, res) {
     const metricValues = summaryResponse[0].rows?.[0]?.metricValues || [];
 
     return res.status(200).json({
-      propertyId,
+      propertyId: GA_PROPERTY_ID,
       period: 'last_30_days',
       summary: {
         activeUsers: Number(metricValues[0]?.value || 0),
