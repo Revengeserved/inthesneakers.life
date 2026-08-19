@@ -1,0 +1,71 @@
+name: P1 Optimize Social Image
+
+on:
+  push:
+    branches:
+      - agent/p1-social-firewall
+    paths:
+      - .github/workflows/p1-optimize-social-image.yml
+
+permissions:
+  contents: write
+
+jobs:
+  optimize-social-image:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: agent/p1-social-firewall
+
+      - name: Inspect source and create compressed replacement
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
+          echo "Source file:"
+          file Inthesneakers-1.jpeg
+          identify Inthesneakers-1.jpeg
+          width=$(identify -format '%w' Inthesneakers-1.jpeg)
+          height=$(identify -format '%h' Inthesneakers-1.jpeg)
+          channels=$(identify -format '%[channels]' Inthesneakers-1.jpeg)
+          echo "dimensions=${width}x${height}; channels=${channels}"
+
+          # Preserve the exact canvas dimensions. Re-encode at high quality, strip only
+          # metadata, and use progressive JPEG delivery. If transparency is present,
+          # abort instead of silently changing the image's appearance.
+          if echo "$channels" | grep -qi 'a'; then
+            echo "Source contains an alpha channel; refusing a lossy JPEG conversion." >&2
+            exit 1
+          fi
+
+          convert Inthesneakers-1.jpeg \
+            -strip \
+            -interlace Plane \
+            -sampling-factor 4:4:4 \
+            -quality 90 \
+            Inthesneakers-social.jpg
+
+          test "$(identify -format '%w' Inthesneakers-social.jpg)" = "$width"
+          test "$(identify -format '%h' Inthesneakers-social.jpg)" = "$height"
+
+          old_bytes=$(stat -c%s Inthesneakers-1.jpeg)
+          new_bytes=$(stat -c%s Inthesneakers-social.jpg)
+          echo "old_bytes=$old_bytes"
+          echo "new_bytes=$new_bytes"
+          if [ "$new_bytes" -ge "$old_bytes" ]; then
+            echo "Replacement is not smaller; aborting." >&2
+            exit 1
+          fi
+
+      - name: Commit optimized asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Inthesneakers-social.jpg
+          git commit -m "Optimize social preview image"
+          git push origin HEAD:agent/p1-social-firewall
