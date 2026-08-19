@@ -1,11 +1,9 @@
 name: P1 Optimize Social Image
 
 on:
-  push:
+  pull_request:
     branches:
-      - agent/p1-social-firewall
-    paths:
-      - .github/workflows/p1-optimize-social-image.yml
+      - main
 
 permissions:
   contents: write
@@ -23,6 +21,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if [ -f Inthesneakers-social.jpg ]; then
+            echo "Optimized asset already exists; nothing to regenerate."
+            exit 0
+          fi
           sudo apt-get update -qq
           sudo apt-get install -y -qq imagemagick
           echo "Source file:"
@@ -64,8 +66,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          git add Inthesneakers-social.jpg 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No asset changes to commit."
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Inthesneakers-social.jpg
           git commit -m "Optimize social preview image"
           git push origin HEAD:agent/p1-social-firewall
