@@ -48,6 +48,10 @@ GA4 is installed directly in `index.html` with the production measurement ID:
 
 - `G-MXG8LMSNDE`
 
+The verified numeric GA4 Property ID used by the Google Analytics Data API is:
+
+- `392399720`
+
 Tracked events currently emitted by the homepage:
 
 - `click_donate_venmo`
@@ -55,12 +59,12 @@ Tracked events currently emitted by the homepage:
 - `click_continue_on_medium`
 - `click_featured_housing_story`
 
-The Google Analytics Data API uses a separate numeric GA4 property ID. That value must be configured in Vercel as `GA_PROPERTY_ID` (or the legacy-compatible `GA4_PROPERTY_ID`) and is intentionally not hardcoded in this public repository.
-
-The protected admin analytics endpoint also requires:
+The protected admin analytics endpoint requires:
 
 - `ANALYTICS_API_TOKEN`
 - `GOOGLE_SERVICE_ACCOUNT_JSON`
+
+The numeric GA4 Property ID is intentionally fixed in `api/analytics.js` so the deployed API cannot drift between conflicting environment-variable values.
 
 To verify client-side tracking: open Google Analytics → Realtime → visit the site → tap the buttons.
 
