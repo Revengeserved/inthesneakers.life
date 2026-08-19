@@ -6,9 +6,9 @@ Production website for **Inside the Sneakers**.
 
 - Primary domain: `https://inthesneakers.life/`
 - Source repo: `Revengeserved/inthesneakers.life`
-- Current intended page type: expanded homepage / landing page hybrid
-- Current public links: Venmo + Medium blog only
-- Recent blog posts should appear in the homepage posts section when the Medium feed loads
+- Current page type: single-page landing page
+- Official tagline: **Rock Bottom Has a Basement**
+- Current public links: Venmo plus two Medium story links
 
 ## Project boundary
 
@@ -20,6 +20,7 @@ It should include:
 - Brand assets, logo, banner, and visual identity
 - Fundraiser/support copy
 - Medium/blog/social links and public storytelling copy
+- Site analytics code and admin analytics UI
 - Deployment notes for the website
 
 It should **not** include:
@@ -28,19 +29,22 @@ It should **not** include:
 - VA/legal packets
 - Lease disputes, resident ledgers, or legal correspondence
 - Private case documents that belong in the legal project
+- Crypto wallet scanning, recovery, or forensics tools
 - Cash App links or Cash App donation copy
 
-## What this repo should contain
+## What this repo contains
 
-This is intentionally focused:
+This site is intentionally focused:
 
-- `index.html` — the homepage with hero, story, proof/timeline, latest posts, support, and Medium sections
-- `hero-redesign.css` — the homepage styling with the Oakland Tribune-inspired palette
-- `Inthesneakers-1.jpeg` — the hero/background image asset
-- `vercel.json` — Vercel static-site routing/security config if Vercel is connected
-- `README.md` — this launch note
+- `index.html` — hero/tagline, support links, introduction/story excerpt, and featured Medium links
+- `hero-redesign.css` — current homepage styling and responsive layout
+- `Inthesneakers-1.jpeg` — hero/background image asset
+- `analytics.html` — protected admin analytics dashboard UI
+- `api/analytics.js` — protected Google Analytics Data API endpoint
+- `vercel.json` — Vercel routing and security configuration
+- `README.md` — project boundary and deployment notes
 
-No legal evidence, no VA packet files, no generated analytics reports, no Cash App links, and no confusing mixed-project files.
+No legal evidence, VA packet files, generated analytics reports, crypto tooling, Cash App links, or other mixed-project files belong here.
 
 ## Google Analytics
 
@@ -87,8 +91,7 @@ In the domain provider, point:
 | A | @ | 76.76.21.21 |
 | CNAME | www | cname.vercel-dns.com |
 
-After DNS is changed, add `inthesneakers.life` and `www.inthesneakers.life` to the Vercel project domains.
+Production domains:
 
-## Current issue to verify
-
-The repo is corrected to the expanded homepage with Venmo + Medium only, but the live domain may still be serving an older deployed/cached version. Verify the active hosting source before assuming the code edit failed.
+- `inthesneakers.life`
+- `www.inthesneakers.life`
