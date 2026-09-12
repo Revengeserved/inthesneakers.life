@@ -49,6 +49,21 @@ body:after{
 .skip-link{position:absolute;left:1rem;top:1rem;z-index:10;transform:translateY(-160%);padding:.75rem 1rem;border:1px solid var(--white);border-radius:999px;background:var(--black);color:var(--white)}
 .skip-link:focus{transform:translateY(0)}
 
+body.popup-open{overflow:hidden}
+.clarity-popup{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:clamp(.9rem,4vw,2rem);background:rgba(0,0,0,.78);backdrop-filter:blur(8px);animation:popup-fade-in 180ms ease-out}
+.clarity-popup[hidden]{display:none}
+.clarity-popup--closing{opacity:0;transition:opacity 180ms ease}
+.clarity-popup__panel{width:min(100%,650px);max-height:calc(100svh - 1.8rem);overflow:auto;padding:clamp(1.4rem,5vw,2.8rem);border:1px solid rgba(50,198,173,.7);border-radius:30px;background:linear-gradient(145deg,rgba(8,8,8,.98),rgba(0,0,0,.94));box-shadow:var(--teal-glow),0 30px 100px rgba(0,0,0,.8);animation:popup-panel-in 220ms ease-out}
+.clarity-popup__eyebrow{margin:0 0 .55rem;color:var(--light-two);font-size:.74rem;font-weight:900;letter-spacing:.24em;text-transform:uppercase;text-shadow:var(--teal-glow)}
+.clarity-popup h2{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:clamp(3rem,10vw,5.8rem);line-height:.88;letter-spacing:.025em;text-transform:uppercase;text-wrap:balance;text-shadow:0 0 5px rgba(255,255,255,.5),0 0 22px rgba(255,47,47,.75),0 0 45px rgba(50,198,173,.3)}
+.clarity-popup__copy{margin-top:clamp(1rem,3vw,1.5rem)}
+.clarity-popup__copy p{margin:.8rem 0 0;color:rgba(255,255,255,.88);font-size:clamp(.94rem,2.6vw,1.06rem);line-height:1.62}
+.clarity-popup__copy p:last-child{color:var(--white);font-weight:700}
+.clarity-popup__button{width:100%;min-height:52px;margin-top:clamp(1.25rem,4vw,1.8rem);padding:.85rem 1rem;border:1px solid rgba(255,47,47,.82);border-radius:999px;color:var(--white);background:rgba(255,47,47,.12);box-shadow:var(--red-glow);font:900 .84rem/1 "IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:transform 180ms ease,box-shadow 180ms ease,background 180ms ease}
+.clarity-popup__button:hover,.clarity-popup__button:focus-visible{transform:translateY(-2px);outline:2px solid var(--white);outline-offset:3px;background:rgba(255,47,47,.22);box-shadow:0 0 24px rgba(255,47,47,.88),0 0 62px rgba(255,47,47,.42)}
+@keyframes popup-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes popup-panel-in{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+
 .landing-page{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1rem,2.8vw,1.8rem);padding:clamp(1rem,4vw,3rem)}
 
 .landing-card,.medium-intro{width:min(100%,880px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68),inset 0 0 0 1px rgba(255,255,255,.04);backdrop-filter:blur(3px)}
@@ -81,6 +96,7 @@ h1{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,
   h1{font-size:clamp(3.25rem,18vw,5.6rem)}
   .link-boxes{grid-template-columns:1fr}
   .link-box{min-height:84px;border-radius:18px}
+  .clarity-popup__panel{border-radius:24px}
 }
 
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
