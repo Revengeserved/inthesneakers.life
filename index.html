@@ -41,6 +41,18 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
+  <div class="clarity-popup" id="clarity-popup" role="dialog" aria-modal="true" aria-labelledby="clarity-popup-title" aria-describedby="clarity-popup-copy">
+    <div class="clarity-popup__panel">
+      <p class="clarity-popup__eyebrow">A quick word</p>
+      <h2 id="clarity-popup-title">Just so we’re clear</h2>
+      <div id="clarity-popup-copy" class="clarity-popup__copy">
+        <p>If you’ve noticed there’s less trash around here lately, that’s because I pick it up. Every time I’m here, I pick up the trash around the area and out of the planters.</p>
+        <p>So, to everybody who wants to complain about me or call the police because I’m here: sorry to inconvenience you.</p>
+        <p>Apparently, the environment enjoys having me around.</p>
+      </div>
+      <button class="clarity-popup__button" id="clarity-popup-dismiss" type="button">Alright, I heard you</button>
+    </div>
+  </div>
   <main id="main-content" class="landing-page">
     <section class="landing-card" aria-labelledby="home-title">
       <p class="eyebrow">Inside the Sneakers</p>
@@ -83,6 +95,32 @@
   </main>
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script>
+    (function () {
+      var popup = document.getElementById('clarity-popup');
+      var dismissButton = document.getElementById('clarity-popup-dismiss');
+      var previouslyFocused = document.activeElement;
+
+      document.body.classList.add('popup-open');
+      dismissButton.focus();
+
+      function dismissPopup() {
+        popup.classList.add('clarity-popup--closing');
+        document.body.classList.remove('popup-open');
+        window.setTimeout(function () {
+          popup.hidden = true;
+          if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
+            previouslyFocused.focus();
+          }
+        }, 180);
+      }
+
+      dismissButton.addEventListener('click', dismissPopup);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && !popup.hidden) dismissPopup();
+      });
+    }());
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
