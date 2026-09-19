@@ -66,7 +66,7 @@ body.popup-open{overflow:hidden}
 
 .landing-page{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1rem,2.8vw,1.8rem);padding:clamp(1rem,4vw,3rem)}
 
-.landing-card,.medium-intro{width:min(100%,880px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68),inset 0 0 0 1px rgba(255,255,255,.04);backdrop-filter:blur(3px)}
+.landing-card,.medium-intro,.contact-section{width:min(100%,880px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68),inset 0 0 0 1px rgba(255,255,255,.04);backdrop-filter:blur(3px)}
 .landing-card{padding:clamp(1.35rem,4vw,2.9rem);border-radius:34px}
 .eyebrow{margin:0 0 .55rem;color:var(--light-two);text-transform:uppercase;letter-spacing:.28em;font-weight:900;font-size:clamp(.72rem,1.45vw,.88rem);text-shadow:var(--teal-glow)}
 .place-stamp{margin:0 0 clamp(.8rem,2vw,1.1rem);color:rgba(255,255,255,.78);font-size:clamp(.72rem,1.4vw,.92rem);line-height:1.35;letter-spacing:.2em;text-transform:uppercase;font-weight:900;text-shadow:0 0 12px rgba(255,47,47,.38),0 0 26px rgba(50,198,173,.28)}
@@ -89,6 +89,12 @@ h1{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,
 .medium-intro p:not(.section-kicker){max-width:72ch;margin:.85rem 0 0;color:rgba(255,255,255,.84);font-size:clamp(.94rem,1.7vw,1.06rem);line-height:1.62}
 .story-link{display:inline-flex;align-items:center;justify-content:center;margin-top:1rem;min-height:46px;padding:.8rem 1rem;border:1px solid rgba(255,47,47,.74);border-radius:999px;color:var(--white);background:rgba(0,0,0,.52);box-shadow:var(--red-glow);font-size:.82rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase;transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease}
 .story-link-teal{border-color:rgba(50,198,173,.74);box-shadow:var(--teal-glow)}
+
+.contact-section{padding:clamp(1.1rem,3vw,1.8rem);border-radius:28px;text-align:left}
+.contact-section h2{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:clamp(2rem,5.2vw,3.9rem);line-height:.94;letter-spacing:.03em;text-transform:uppercase;text-shadow:0 0 16px rgba(255,47,47,.45),0 0 32px rgba(50,198,173,.22)}
+.contact-section p:not(.section-kicker){max-width:62ch;margin:.85rem 0 0;color:rgba(255,255,255,.84);font-size:clamp(.94rem,1.7vw,1.06rem);line-height:1.62}
+.contact-email{display:inline-flex;align-items:center;justify-content:center;margin-top:1rem;min-height:46px;padding:.8rem 1rem;border:1px solid rgba(50,198,173,.74);border-radius:999px;color:var(--white);background:rgba(0,0,0,.52);box-shadow:var(--teal-glow);font-size:clamp(.78rem,2.4vw,.92rem);font-weight:900;letter-spacing:.08em;overflow-wrap:anywhere;transition:transform 180ms ease,box-shadow 180ms ease,border-color 180ms ease}
+.contact-email:hover,.contact-email:focus-visible{transform:translateY(-3px);outline:none;box-shadow:0 0 24px rgba(50,198,173,.86),0 0 62px rgba(50,198,173,.38)}
 
 @media (max-width:760px){
   .landing-page{justify-content:flex-start;padding:.8rem;gap:.85rem}
