@@ -66,7 +66,7 @@ body.popup-open{overflow:hidden}
 
 .landing-page{position:relative;z-index:1;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(1rem,2.8vw,1.8rem);padding:clamp(1rem,4vw,3rem)}
 
-.landing-card,.medium-intro,.contact-section{width:min(100%,880px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68),inset 0 0 0 1px rgba(255,255,255,.04);backdrop-filter:blur(3px)}
+.landing-card,.walking-feature,.medium-intro,.contact-section{width:min(100%,880px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68),inset 0 0 0 1px rgba(255,255,255,.04);backdrop-filter:blur(3px)}
 .landing-card{padding:clamp(1.35rem,4vw,2.9rem);border-radius:34px}
 .eyebrow{margin:0 0 .55rem;color:var(--light-two);text-transform:uppercase;letter-spacing:.28em;font-weight:900;font-size:clamp(.72rem,1.45vw,.88rem);text-shadow:var(--teal-glow)}
 .place-stamp{margin:0 0 clamp(.8rem,2vw,1.1rem);color:rgba(255,255,255,.78);font-size:clamp(.72rem,1.4vw,.92rem);line-height:1.35;letter-spacing:.2em;text-transform:uppercase;font-weight:900;text-shadow:0 0 12px rgba(255,47,47,.38),0 0 26px rgba(50,198,173,.28)}
@@ -82,6 +82,14 @@ h1{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,
 .link-box-medium{border-color:rgba(50,198,173,.72);box-shadow:var(--teal-glow)}
 .link-box-venmo:hover,.link-box-venmo:focus-visible{box-shadow:0 0 24px rgba(255,47,47,.86),0 0 62px rgba(255,47,47,.38)}
 .link-box-medium:hover,.link-box-medium:focus-visible{box-shadow:0 0 24px rgba(50,198,173,.86),0 0 62px rgba(50,198,173,.38)}
+
+.walking-feature{overflow:hidden;padding:clamp(1rem,3vw,1.55rem);border-color:rgba(255,47,47,.5);border-radius:28px}
+.walking-feature__copy{padding:clamp(.1rem,1vw,.45rem) clamp(.1rem,1vw,.45rem) clamp(1rem,2.4vw,1.35rem)}
+.walking-feature h2{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:clamp(2.7rem,7vw,5.2rem);line-height:.9;letter-spacing:.03em;text-transform:uppercase;text-shadow:0 0 16px rgba(255,47,47,.55),0 0 32px rgba(50,198,173,.2)}
+.walking-feature__copy>p:last-child{max-width:66ch;margin:.85rem 0 0;color:rgba(255,255,255,.84);font-size:clamp(.94rem,1.7vw,1.06rem);line-height:1.62}
+.walking-feature__figure{margin:0;overflow:hidden;border:1px solid rgba(255,255,255,.18);border-radius:20px;background:#121212;box-shadow:0 18px 54px rgba(0,0,0,.58)}
+.walking-feature__figure img{display:block;width:100%;height:auto}
+.walking-feature__figure figcaption{padding:.85rem 1rem;color:rgba(255,255,255,.72);font-size:clamp(.78rem,1.6vw,.9rem);font-style:italic;line-height:1.5;text-align:center}
 
 .medium-intro{padding:clamp(1.1rem,3vw,1.8rem);border-radius:28px}
 .section-kicker{margin:0 0 .55rem;color:var(--light-two);text-shadow:var(--teal-glow)}
