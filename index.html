@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="hero-redesign.css?v=20260722-introduction-refresh" />
+  <link rel="stylesheet" href="hero-redesign.css?v=20261116-scroll-sections" />
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MXG8LMSNDE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -41,18 +41,6 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
-  <div class="clarity-popup" id="clarity-popup" role="dialog" aria-modal="true" aria-labelledby="clarity-popup-title" aria-describedby="clarity-popup-copy">
-    <div class="clarity-popup__panel">
-      <p class="clarity-popup__eyebrow">A quick update</p>
-      <h2 id="clarity-popup-title">Thank you for sticking with us</h2>
-      <div id="clarity-popup-copy" class="clarity-popup__copy">
-        <p>I’m sorry about the lack of updates. Last month, I wasn’t able to pay for the subscriptions I need to run my blog, and we were without power for ten days.</p>
-        <p>Updates will be posted as soon as I can pay for my subscriptions.</p>
-        <p>As always, thank you for being part of our comeback story.</p>
-      </div>
-      <button class="clarity-popup__button" id="clarity-popup-dismiss" type="button">Got it</button>
-    </div>
-  </div>
   <main id="main-content" class="landing-page">
     <section class="landing-card" aria-labelledby="home-title">
       <p class="eyebrow">Inside the Sneakers</p>
@@ -70,23 +58,14 @@
         </a>
       </div>
     </section>
-    <section class="walking-feature" aria-labelledby="walking-feature-title">
-      <div class="walking-feature__copy">
-        <p class="section-kicker">Poor Doesn’t Equal Lazy</p>
-        <h2 id="walking-feature-title">The Numbers in My Shoes</h2>
-        <p>Over 181 measured days, I averaged 23,620 steps and 9.46 miles a day. Different circumstances. Same human effort.</p>
-      </div>
-      <figure class="walking-feature__figure">
-        <img
-          src="poor-doesnt-equal-lazy-walking-stats.jpeg"
-          width="1024"
-          height="1536"
-          loading="eager"
-          fetchpriority="high"
-          alt="Walking achievement infographic: 23,620 average daily steps, 4,275,149 total steps, 1,712.3 total miles, 178 of 181 days over 10,000 steps, and a peak day of 47,734 steps."
-        />
-        <figcaption>I didn’t walk because life was easy. I walked because standing still wasn’t an option.</figcaption>
-      </figure>
+    <section class="statement-section" aria-labelledby="semper-title">
+      <p class="section-kicker">The Reality</p>
+      <h2 id="semper-title">Semper Fucked.</h2>
+    </section>
+    <section class="statement-section statement-section--final" aria-labelledby="survival-title">
+      <p class="section-kicker">Still Standing</p>
+      <h2 id="survival-title">Beg. Steal. Starve.</h2>
+      <p class="statement-section__closing">God has got me.</p>
     </section>
     <section class="medium-intro" aria-labelledby="medium-intro-title">
       <p class="section-kicker">Welcome to Inside the Sneakers</p>
@@ -116,35 +95,27 @@
       <p>Questions, media inquiries, support, or just want to reach out? Email Inside the Sneakers directly.</p>
       <a class="contact-email" href="mailto:ronn@inthesneakers.life" onclick="trackClick('click_contact_email')">ronn@inthesneakers.life</a>
     </section>
+    <section class="walking-feature" aria-labelledby="walking-feature-title">
+      <div class="walking-feature__copy">
+        <p class="section-kicker">Poor Doesn’t Equal Lazy</p>
+        <h2 id="walking-feature-title">The Numbers in My Shoes</h2>
+        <p>Over 181 measured days, I averaged 23,620 steps and 9.46 miles a day. Different circumstances. Same human effort.</p>
+      </div>
+      <figure class="walking-feature__figure">
+        <img
+          src="poor-doesnt-equal-lazy-walking-stats.jpeg"
+          width="1024"
+          height="1536"
+          loading="eager"
+          fetchpriority="high"
+          alt="Walking achievement infographic: 23,620 average daily steps, 4,275,149 total steps, 1,712.3 total miles, 178 of 181 days over 10,000 steps, and a peak day of 47,734 steps."
+        />
+        <figcaption>I didn’t walk because life was easy. I walked because standing still wasn’t an option.</figcaption>
+      </figure>
+    </section>
   </main>
   <script>
     window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-  </script>
-  <script>
-    (function () {
-      var popup = document.getElementById('clarity-popup');
-      var dismissButton = document.getElementById('clarity-popup-dismiss');
-      var previouslyFocused = document.activeElement;
-
-      document.body.classList.add('popup-open');
-      dismissButton.focus();
-
-      function dismissPopup() {
-        popup.classList.add('clarity-popup--closing');
-        document.body.classList.remove('popup-open');
-        window.setTimeout(function () {
-          popup.hidden = true;
-          if (previouslyFocused && typeof previouslyFocused.focus === 'function') {
-            previouslyFocused.focus();
-          }
-        }, 180);
-      }
-
-      dismissButton.addEventListener('click', dismissPopup);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && !popup.hidden) dismissPopup();
-      });
-    }());
   </script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
