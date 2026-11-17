@@ -114,3 +114,9 @@ h1{margin:0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,
 }
 
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* Scrollable statement panels, using the existing background and neon typography. */
+.statement-section{width:min(100%,880px);min-height:65svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(1.5rem,5vw,3rem);border:1px solid var(--line);border-radius:28px;background:linear-gradient(135deg,rgba(0,0,0,.62),rgba(0,0,0,.38));box-shadow:0 30px 120px rgba(0,0,0,.68);backdrop-filter:blur(3px)}
+.statement-section h2{margin:.6rem 0 0;color:var(--white);font-family:"Bebas Neue",Impact,Haettenschweiler,"Arial Narrow Bold",sans-serif;font-size:clamp(3.6rem,11vw,8rem);line-height:.92;letter-spacing:.025em;text-transform:uppercase;text-wrap:balance;text-shadow:0 0 5px rgba(255,255,255,.62),0 0 20px rgba(255,47,47,.75),0 0 48px rgba(50,198,173,.34)}
+.statement-section__closing{margin:1.5rem 0 0;color:var(--light-two);font-size:clamp(1.2rem,3vw,2rem);font-weight:900;text-transform:uppercase;letter-spacing:.09em;text-shadow:var(--teal-glow)}
+@media(max-width:760px){.statement-section{min-height:55svh;padding:1.4rem}.statement-section h2{font-size:clamp(3.2rem,15vw,5.8rem)}}
